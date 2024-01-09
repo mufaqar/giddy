@@ -1,9 +1,12 @@
 import React from 'react'
 import Trendingposts from '../components/posts/trendingposts'
 import FeaturedContent from '../components/posts/featured-content'
+import FeaturedPost from '../components/posts/featured-post'
+import VideoSection from '../components/posts/video-sec'
 
 export default function Widgets() {
     return (
+        <>
         <section className='py-16'>
             <div className='container mx-auto px-4 grid md:grid-cols-4 grid-cols-1 gap-7 '>
                 <div className=''>
@@ -14,5 +17,7 @@ export default function Widgets() {
                 </div>
             </div>
         </section>
+        <VideoSection />
+        </>
     )
 }

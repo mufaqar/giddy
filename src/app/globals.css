@@ -65,3 +65,16 @@ body, html {
 .slick-dots li.slick-active button:before {
   background-color: #282828;
 }
+
+.video_Slider .slick-dots li button:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #868686;
+  border-radius: 26.5px;
+  opacity: 1;
+}
+.video_Slider .slick-dots li button:hover:before,
+.video_Slider .slick-dots li.slick-active button:before {
+  background-color: #fff;
+}

@@ -21,7 +21,7 @@ const Trendingposts = () => {
             <h2 className='text-xl font-medium text-black flex gap-1.5 items-center'>
                 <FaArrowTrendUp className="text-[#F8485E]" /> Trending Topics
             </h2>
-            <ul className='mt-3 flex flex-col gap-3'>
+            <ul className='mt-3 flex flex-col gap-3 h-[75%]'>
                 <Slider ref={slider} {...settings} className='h-full'>
                     {Topics.map((item, idx) => {
                         return (

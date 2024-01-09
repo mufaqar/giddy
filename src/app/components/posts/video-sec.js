@@ -1,12 +1,10 @@
 'use client'
 import React from 'react'
-import Slider from "react-slick";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import Image from 'next/image';
-import Link from 'next/link';
+import Slider from 'react-slick';
 import FeaturedPost from './featured-post';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const FeaturedContent = () => {
+const VideoSection = () => {
     const settings = {
         dots: true,
         infinite: true,
@@ -48,122 +46,124 @@ const FeaturedContent = () => {
     };
     const slider = React.useRef(null);
     return (
-        <div className='bg-white rounded-lg py-5 px-3 pb-12 shadow-[0_6px_20px_0px_rgba(0,0,0,0.1)] relative h-full'>
-            <h2 className='text-xl font-medium text-black pl-2'>
-                Featured Content
-            </h2>
-            <div className='mt-3 flex flex-col gap-3'>
-                <Slider ref={slider} {...settings}>
-                    {Posts.map((item, idx) => {
-                        return (
-                            <FeaturedPost key={idx} data={item} custm_class="text-black" />
-                        )
-                    })}
-                </Slider>
+        <section className='py-16 bg-[#161C45] video_Slider'>
+            <div className='container mx-auto px-4 relative'>
+                <h2 className='text-[40px] leading-[45px] font-medium text-white mb-5'>
+                    Featured Videos
+                </h2>
+                <div className=' mt-3 flex flex-col gap-3'>
+                    <Slider ref={slider} {...settings}>
+                        {Posts.map((item, idx) => {
+                            return (
+                                <FeaturedPost key={idx} data={item} custm_class="text-white" />
+                            )
+                        })}
+                    </Slider>
+                    <button className="absolute top-0 right-16 border rounded-full p-2 transform -translate-y-1/2 text-xl text-white " onClick={() => slider?.current?.slickPrev()}><IoIosArrowBack /></button>
+                    <button className="absolute top-0 right-4 border rounded-full p-2 transform -translate-y-1/2 text-xl text-white " onClick={() => slider?.current?.slickNext()}><IoIosArrowForward /></button>
+                </div>
             </div>
-            <button className="absolute top-8 right-14 border rounded-full p-1 transform -translate-y-1/2 text-base text-black " onClick={() => slider?.current?.slickPrev()}><IoIosArrowBack /></button>
-            <button className="absolute top-8 right-4 border rounded-full p-1 transform -translate-y-1/2 text-base text-black " onClick={() => slider?.current?.slickNext()}><IoIosArrowForward /></button>
-        </div>
+        </section>
     )
 }
 
-export default FeaturedContent
+export default VideoSection
 
 const Posts = [
     {
         id: 1,
         link: "#",
-        img: "/images/post/1.png",
+        video: "yAoLSRbwxL8",
         title: "Simply Irresistible: The Science of Attraction",
     },
     {
         id: 2,
         link: "#",
-        img: "/images/post/2.png",
+        video: "yAoLSRbwxL8",
         title: "Using Dating Apps to Discover Your Sexuality",
     },
     {
         id: 3,
         link: "#",
-        img: "/images/post/3.png",
+        video: "yAoLSRbwxL8",
         title: "Millions Are Watching Mukbang, but Is It a Harmful Influence?",
     },
     {
         id: 4,
         link: "#",
-        img: "/images/post/4.png",
+        video: "yAoLSRbwxL8",
         title: "Study Finds Racial Disparities in Ovarian Cancer Care",
     },
     {
         id: 5,
         link: "#",
-        img: "/images/post/1.png",
+        video: "yAoLSRbwxL8",
         title: "Prostate Cancer",
     },
     {
         id: 6,
         link: "#",
-        img: "/images/post/2.png",
+        video: "yAoLSRbwxL8",
         title: "Erectile Dysfunction",
     },
     {
         id: 7,
         link: "#",
-        img: "/images/post/3.png",
+        video: "yAoLSRbwxL8",
         title: "Pregnancy",
     },
     {
         id: 8,
         link: "#",
-        img: "/images/post/4.png",
+        video: "yAoLSRbwxL8",
         title: "Menopause",
     },
     {
         id: 9,
         link: "#",
-        img: "/images/post/1.png",
+        video: "yAoLSRbwxL8",
         title: "STDs/STIs",
     },
     {
         id: 10,
         link: "#",
-        img: "/images/post/2.png",
+        video: "yAoLSRbwxL8",
         title: "Prostate Cancer",
     },
     {
         id: 11,
         link: "#",
-        img: "/images/post/3.png",
+        video: "yAoLSRbwxL8",
         title: "Erectile Dysfunction",
     },
     {
         id: 12,
         link: "#",
-        img: "/images/post/4.png",
+        video: "yAoLSRbwxL8",
         title: "Pregnancy",
     },
     {
         id: 13,
         link: "#",
-        img: "/images/post/1.png",
+        video: "yAoLSRbwxL8",
         title: "Menopause",
     },
     {
         id: 14,
         link: "#",
-        img: "/images/post/2.png",
+        video: "yAoLSRbwxL8",
         title: "STDs/STIs",
     },
     {
         id: 15,
         link: "#",
-        img: "/images/post/3.png",
+        video: "yAoLSRbwxL8",
         title: "Prostate Cancer",
     },
     {
         id: 16,
         link: "#",
-        img: "/images/post/4.png",
+        video: "yAoLSRbwxL8",
         title: "Erectile Dysfunction",
     },
 ]

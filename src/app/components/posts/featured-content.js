@@ -4,6 +4,7 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Image from 'next/image';
+import Link from 'next/link';
 
 const FeaturedContent = () => {
     const settings = {
@@ -15,12 +16,41 @@ const FeaturedContent = () => {
         rows: 1,
         slidesPerRow: 1,
         arrows: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    rows: 1,
+                    slidesPerRow: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    rows: 1,
+                    slidesPerRow: 1,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    rows: 1,
+                    slidesPerRow: 1,
+                }
+            }
+        ]
     };
     const slider = React.useRef(null);
     return (
-        <div className='bg-white rounded-lg py-5 px-3 pb-12 shadow-[0_6px_20px_0px_rgba(0,0,0,0.1)] relative'>
+        <div className='bg-white rounded-lg py-5 px-3 pb-12 shadow-[0_6px_20px_0px_rgba(0,0,0,0.1)] relative h-full'>
             <h2 className='text-xl font-medium text-black'>
-             Featured Content
+                Featured Content
             </h2>
             <div className='mt-3 flex flex-col gap-3'>
                 <Slider ref={slider} {...settings}>
@@ -28,9 +58,9 @@ const FeaturedContent = () => {
                         return (
                             <div key={idx} className='px-2'>
                                 <Image src={item?.img} width={224} height={140} className='w-full' />
-                                <h3 className='text-base font-medium text-black mt-2'>
+                                <Link href={item?.link} className='text-base font-medium text-black mt-2'>
                                     {item?.title}
-                                </h3>
+                                </Link>
                             </div>
                         )
                     })}

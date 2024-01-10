@@ -6,7 +6,7 @@ const LatestPost_sec = () => {
     return (
         <section className='py-16'>
             <div className='container mx-auto px-4'>
-                <h2 className='text-[40px] leading-[45px] font-medium text-black mb-10'>
+                <h2 className='md:text-[40px] md:leading-[45px] text-3xl font-medium text-black mb-10'>
                     Latest from Giddy
                 </h2>
                 <div className='grid md:grid-cols-4 grid-cols-1 gap-7'>

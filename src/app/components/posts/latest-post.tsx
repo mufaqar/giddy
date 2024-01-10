@@ -19,13 +19,13 @@ const Latest_Post = ({ data, custm_class }: any) => {
                 )
             }
             <div className='md:w-[75%] w-full'>
-                <Link href="#" className={`text-lg font-medium text-[#3185FC] block w-fit ${custm_class}`}>
+                <Link href="#" className={`md:text-lg text-base font-medium text-[#3185FC] block w-fit ${custm_class}`}>
                     {data?.cate}
                 </Link>
-                <Link href="#" className={`text-2xl font-medium text-black mt-4 block w-fit ${custm_class}`}>
+                <Link href="#" className={`md:text-2xl text-xl font-medium text-black mt-4 block w-fit ${custm_class}`}>
                     {data?.title}
                 </Link>
-                <p className='text-xl font-normal text-black'>
+                <p className='md:text-xl text-base font-normal text-black'>
                     {data?.excerpt}
                 </p>
                 <ul className='flex gap-2 items-center mt-3'>

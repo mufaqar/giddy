@@ -51,7 +51,7 @@ const Poll_Section = () => {
                     <h2 className='text-xl font-medium text-black flex gap-1.5 items-center'>
                         <FaArrowTrendUp className="text-[#F8485E]" /> Polls
                     </h2>
-                    <div className='mt-3 flex flex-col gap-3 h-[75%]'>
+                    <div className='mt-3 flex flex-col gap-3'>
                         <Slider ref={slider} {...settings} className='h-full'>
                             {Poll_Data.map((item, idx) => {
                                 return (

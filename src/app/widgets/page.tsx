@@ -3,6 +3,7 @@ import Trendingposts from '../components/posts/trendingposts'
 import FeaturedContent from '../components/posts/featured-content'
 import Poll_Section from '../components/poll/poll-sec'
 import VideoSection from '../components/posts/video-sec'
+import LatestPost_sec from '../components/posts/latest-post-sec'
 
 export default function Widgets() {
     return (
@@ -19,6 +20,7 @@ export default function Widgets() {
         </section>
         <VideoSection />
         <Poll_Section />
+        <LatestPost_sec />
         </>
     )
 }

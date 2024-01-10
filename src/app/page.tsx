@@ -5,6 +5,7 @@ import Trendingposts from './components/posts/trendingposts'
 import FeaturedContent from './components/posts/featured-content'
 import VideoSection from './components/posts/video-sec'
 import Poll_Section from './components/poll/poll-sec'
+import LatestPost_sec from './components/posts/latest-post-sec'
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
         </section>
         <VideoSection />
         <Poll_Section />
+        <LatestPost_sec />
     </>
   )
 }

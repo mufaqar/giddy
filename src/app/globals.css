@@ -15,25 +15,30 @@
   src: url('../../public/fonts/SlatePro-Bk.ttf');
   font-weight: 400;
 }
+
 @font-face {
   font-family: SlatePro;
   src: url('../../public/fonts/SlatePro-Medium.ttf');
   font-weight: 500;
 }
+
 @font-face {
   font-family: SlatePro;
   src: url('../../public/fonts/SlatePro-Bold.ttf');
   font-weight: 700;
 }
+
 @font-face {
   font-family: SlatePro;
   src: url('../../public/fonts/SlatePro.ttf');
   font-weight: 600;
 }
 
-body, html {
+body,
+html {
   font-family: SlatePro;
 }
+
 .slick-dots{
   background-color: #C6C6C6;
   height: fit-content;
@@ -77,4 +82,10 @@ body, html {
 .video_Slider .slick-dots li button:hover:before,
 .video_Slider .slick-dots li.slick-active button:before {
   background-color: #fff;
+}
+
+.hero-gradient {
+  background: #253666;
+  background: radial-gradient(circle, rgba(37, 54, 102, 1) 1%, rgba(20, 26, 62, 1) 67%);
+
 }

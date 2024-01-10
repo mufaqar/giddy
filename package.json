@@ -11,11 +11,12 @@
   "dependencies": {
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^4.12.0",
+    "react-dom": "^18", 
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "slick-slider": "^1.8.2"
+    "slick-slider": "^1.8.2",
+    "react-icons": "^5.0.0"
+
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -19,21 +19,21 @@ const Latest_Post = ({ data, custm_class }: any) => {
                 )
             }
             <div className='md:w-[75%] w-full'>
-                <Link href="#" className={`md:text-lg text-base font-medium text-[#3185FC] block w-fit ${custm_class}`}>
+                {data?.cate && <Link href="#" className={`md:text-lg text-base font-medium text-[#3185FC] block w-fit ${custm_class}`}>
                     {data?.cate}
-                </Link>
-                <Link href="#" className={`md:text-2xl text-xl font-medium text-black mt-4 block w-fit ${custm_class}`}>
+                </Link>}
+                <Link href="#" className={`md:text-2xl text-xl font-medium text-black mt-2 block w-fit ${custm_class}`}>
                     {data?.title}
                 </Link>
-                <p className='md:text-xl text-base font-normal text-black'>
+                {data?.excerpt && <p className='md:text-xl text-base font-normal text-black mt-3'>
                     {data?.excerpt}
-                </p>
+                </p>}
                 <ul className='flex gap-2 items-center mt-3'>
-                    <li>
+                    {data?.author && <li>
                         <span className='text-base font-medium text-[#868686]'>
                             {data?.author}
                         </span>
-                    </li>
+                    </li>}
                     <li className='text-base font-medium text-[#868686]'>.</li>
                     <li>
                         <span className='flex gap-1 items-center text-xs font-medium text-[#868686]'>

@@ -88,3 +88,8 @@ html {
   background: radial-gradient(circle, rgba(37, 54, 102, 1) 1%, rgba(20, 26, 62, 1) 67%);
 
 }
+.cause_tags p{
+  font: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}

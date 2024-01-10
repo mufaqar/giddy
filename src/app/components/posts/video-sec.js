@@ -48,7 +48,7 @@ const VideoSection = () => {
     return (
         <section className='py-16 bg-[#161C45] video_Slider'>
             <div className='container mx-auto px-4 relative'>
-                <h2 className='text-[40px] leading-[45px] font-medium text-white mb-5'>
+                <h2 className='md:text-[40px] md:leading-[45px] text-3xl font-medium text-white mb-10'>
                     Featured Videos
                 </h2>
                 <div className=' mt-3 flex flex-col gap-3'>

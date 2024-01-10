@@ -23,7 +23,7 @@ const Navbar: FC<INavBar> = ({ color }) => {
                          <Logo/>
                          <ul className='items-center capitalize gap-8 hidden md:flex'>
                               {
-                                   NavLinks.map((nav, idx) => (
+                                   NavLinks.map((nav:any, idx:number) => (
                                         <li key={idx} className='relative' onMouseLeave={() => setIsSubNav(null)} onMouseEnter={() => setIsSubNav(idx)}>
                                              <Link href={nav.link} className="hover:text-gray-300 flex item-center gap-2">
                                                   <span>{nav.name}</span>
@@ -33,7 +33,7 @@ const Navbar: FC<INavBar> = ({ color }) => {
                                                   isSubNav === idx && nav?.subNav?.length > 0 && <div className='absolute pt-4'>
                                                        <ul className='bg-white/20 p-4 min-w-[200px] rounded-lg shadow-2xl'>
                                                             {
-                                                                 nav?.subNav?.map((sNav, id) => (
+                                                                 nav?.subNav?.map((sNav:any, id:number) => (
                                                                       <li key={id} className={`py-4 border-b border-gray-400 ${id === 0 && 'pt-1'} ${id + 1 === nav?.subNav?.length && 'pb-1 border-b-0'}`}>
                                                                            <Link href={sNav.link} className="hover:text-gray-300"><span>{sNav.name}</span></Link>
                                                                       </li>

@@ -10,10 +10,12 @@ const FeaturedPost = ({ data, custm_class }: any) => {
             {data?.video ?
                 (<div className="aspect-video">
                     <iframe src={`http://www.youtube.com/watch?v=${data?.video}`}
-                        className='w-full h-full' frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        className='w-full h-full rounded-lg' frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>)
                 :
-                (<Image src={data?.img} width={224} height={140} className='w-full' alt='' />)
+                (<div className='rounded-lg'>
+                    <Image src={data?.img} alt="feature" width={224} height={140} className='w-full' />
+                </div>)
             }
             <Link href="#" className={`text-base font-medium mt-4 block ${custm_class}`}>
                 {data?.title}

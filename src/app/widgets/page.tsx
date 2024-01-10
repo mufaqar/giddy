@@ -1,7 +1,7 @@
 import React from 'react'
 import Trendingposts from '../components/posts/trendingposts'
 import FeaturedContent from '../components/posts/featured-content'
-import FeaturedPost from '../components/posts/featured-post'
+import Poll_Section from '../components/poll/poll-sec'
 import VideoSection from '../components/posts/video-sec'
 
 export default function Widgets() {
@@ -18,6 +18,7 @@ export default function Widgets() {
             </div>
         </section>
         <VideoSection />
+        <Poll_Section />
         </>
     )
 }

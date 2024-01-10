@@ -13,7 +13,7 @@ const FeaturedPost = ({ data, custm_class }: any) => {
                         className='w-full h-full' frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>)
                 :
-                (<Image src={data?.img} width={224} height={140} className='w-full' />)
+                (<Image src={data?.img} width={224} height={140} className='w-full' alt='' />)
             }
             <Link href="#" className={`text-base font-medium mt-4 block ${custm_class}`}>
                 {data?.title}

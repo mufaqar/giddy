@@ -16,7 +16,7 @@ export const topics = defineType({
         name: "slug",
         type: "slug",
         options: {
-          source: "title",
+          source: "name",
           maxLength: 200,
           slugify: (input) =>
             input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),

@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Latest_Post from './latest-post'
 import Sidebar from './sidebar'
+import { IArticle, TArticles } from '@/types/types'
 
-const LatestPost_sec = () => {
+interface IPostProps {
+    articles : TArticles
+}
+
+const LatestPost_sec:FC<IPostProps> = ({articles}) => {
     return (
         <section className='py-16'>
             <div className='container mx-auto px-4'>
@@ -12,9 +17,9 @@ const LatestPost_sec = () => {
                 <div className='grid md:grid-cols-4 grid-cols-1 gap-7'>
                     <div className='md:col-span-3'>
                         <div className='flex flex-col gap-7'>
-                            {Posts.map((item, idx) => {
+                            {articles?.map((item:IArticle, idx:number) => {
                                 return (
-                                    <Latest_Post key={idx} data={item} />
+                                    <Latest_Post key={idx} data={item}/>
                                 )
                             })}
                         </div>

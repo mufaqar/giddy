@@ -14,7 +14,7 @@ const Latest_Post = ({ data, custm_class }: any) => {
                 :
                 (
                     <div className='md:w-[35%] w-full rounded-lg'>
-                        <Image src={data?.img} alt="feature" width={280} height={176} className='w-full' />
+                        <Image src={data?.img} alt="feature" width={280} height={176} className='w-full h-full' />
                     </div>
                 )
             }
@@ -29,11 +29,17 @@ const Latest_Post = ({ data, custm_class }: any) => {
                     {data?.excerpt}
                 </p>}
                 <ul className='flex gap-2 items-center mt-3'>
-                    {data?.author && <li>
+                    {data?.author ? (<li>
                         <span className='text-base font-medium text-[#868686]'>
                             {data?.author}
                         </span>
-                    </li>}
+                    </li>) : (
+                        <li>
+                            <span className='text-base font-medium text-[#868686]'>
+                                4 min
+                            </span>
+                        </li>
+                    )}
                     <li className='text-base font-medium text-[#868686]'>.</li>
                     <li>
                         <span className='flex gap-1 items-center text-xs font-medium text-[#868686]'>

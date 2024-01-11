@@ -38,8 +38,8 @@ export default function Question() {
           </div>
         </div>
       </section>
-      <Poll_Section />
-      <VideoSection />
+      <Poll_Section polls={undefined} />
+      <VideoSection articles={undefined} />
       <section className='py-16 bg-zinc-50'>
         <div className='container mx-auto px-4 relative'>
           <h2 className='md:text-[40px] leading-[45px] font-medium text-black mb-8'>
@@ -59,7 +59,7 @@ export default function Question() {
           </div>
         </div>
       </section>
-      <LatestPost_sec />
+      <LatestPost_sec articles={[]} />
     </>
   )
 }

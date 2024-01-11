@@ -6,7 +6,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PollBox from './poll-box';
 import { sliderSettings } from '@/utils';
 
-const Poll_Section = ({polls}) => {
+const Poll_Section = ({polls:any}) => {
 
     const slider = React.useRef(null);
     return (

@@ -4,45 +4,10 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PollBox from './poll-box';
+import { sliderSettings } from '@/utils';
 
 const Poll_Section = ({polls}) => {
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        rows: 1,
-        slidesPerRow: 1,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    rows: 1,
-                    slidesPerRow: 1,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    rows: 1,
-                    slidesPerRow: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            }
-        ]
-    };
+
     const slider = React.useRef(null);
     return (
         <section className='py-16'>
@@ -52,7 +17,7 @@ const Poll_Section = ({polls}) => {
                         <FaArrowTrendUp className="text-[#F8485E]" /> Polls
                     </h2>
                     <div className='mt-3 flex flex-col gap-3'>
-                        <Slider ref={slider} {...settings} className='h-full'>
+                        <Slider ref={slider} {...sliderSettings} className='h-full'>
                             {polls?.map((item, idx) => {
                                 return (
                                     <PollBox key={idx} data={item} />
@@ -69,114 +34,3 @@ const Poll_Section = ({polls}) => {
 }
 
 export default Poll_Section
-
-const Poll_Data = [
-    {
-       que: "Have you ever had an STD?",
-       options: [
-        {
-            yes: "Yes",
-            no: "No",
-        },
-       ]
-    },
-    {
-       que: "Would you have a threesome?",
-       options: [
-        {
-            yes: "Yes",
-            no: "No",
-        },
-       ]
-    },
-    {
-       que: "Does size matter?",
-       options: [
-        {
-            yes: "Yes",
-            no: "No",
-        },
-       ]
-    },
-    {
-       que: "Have you experimented with toys?",
-       options: [
-        {
-            yes: "Yes",
-            no: "No",
-        },
-       ]
-    },
-    {
-        que: "Have you ever had an STD?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-     {
-        que: "Would you have a threesome?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-     {
-        que: "Does size matter?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-     {
-        que: "Have you experimented with toys?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-     {
-        que: "Have you ever had an STD?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-     {
-        que: "Would you have a threesome?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-     {
-        que: "Does size matter?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-     {
-        que: "Have you experimented with toys?",
-        options: [
-         {
-             yes: "Yes",
-             no: "No",
-         },
-        ]
-     },
-]

@@ -7,7 +7,7 @@ import { BsPlayCircle } from 'react-icons/bs'
 import { FaMessage, FaRegBookmark } from 'react-icons/fa6'
 
 interface IPostProps {
-    data: IArticle,
+    data: IArticle | any,
     custm_class?: string
 }
 

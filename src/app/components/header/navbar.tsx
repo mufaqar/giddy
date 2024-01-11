@@ -18,24 +18,24 @@ const Navbar: FC<INavBar> = ({ color }) => {
 
      return (
           <>
-               <header className='flex justify-between container mx-auto px-2 md:px-0 items-center z-50 py-4' style={{ color: `${color}` }}>
+               <header className='flex justify-between container mx-auto relative px-2 md:px-0 items-center z-50 py-4' style={{ color: `${color}` }}>
                     <div className='flex items-center gap-6'>
-                         <Logo/>
+                         <Logo black={color === '#000'}/>
                          <ul className='items-center capitalize gap-8 hidden md:flex'>
                               {
                                    NavLinks.map((nav:any, idx:number) => (
                                         <li key={idx} className='relative' onMouseLeave={() => setIsSubNav(null)} onMouseEnter={() => setIsSubNav(idx)}>
-                                             <Link href={nav.link} className="hover:text-gray-300 flex item-center gap-2">
+                                             <Link href={nav.link} className={`flex item-center gap-2 ${color === '#000' ? 'hover:text-blue-500' : 'hover:text-gray-300'}`}>
                                                   <span>{nav.name}</span>
-                                                  {nav?.subNav?.length > 0 && <Image src='/svg/arrow-down.svg' alt="icon" width={12} height={12} />}
+                                                  {nav?.subNav?.length > 0 && <Image src='/svg/arrow-down.svg' alt="icon" width={12} height={12} className={`${color === '#000' && 'invert'}`}/>}
                                              </Link>
                                              {
                                                   isSubNav === idx && nav?.subNav?.length > 0 && <div className='absolute pt-4'>
-                                                       <ul className='bg-white/20 p-4 min-w-[200px] rounded-lg shadow-2xl'>
+                                                       <ul className='bg-white p-4 min-w-[200px] rounded-lg shadow-2xl'>
                                                             {
                                                                  nav?.subNav?.map((sNav:any, id:number) => (
                                                                       <li key={id} className={`py-4 border-b border-gray-400 ${id === 0 && 'pt-1'} ${id + 1 === nav?.subNav?.length && 'pb-1 border-b-0'}`}>
-                                                                           <Link href={sNav.link} className="hover:text-gray-300"><span>{sNav.name}</span></Link>
+                                                                           <Link href={sNav.link} className={`text-black ${color === '#000' ? 'hover:text-blue-500' : 'hover:text-blue-500'}`}><span>{sNav.name}</span></Link>
                                                                       </li>
                                                                  ))
                                                             }

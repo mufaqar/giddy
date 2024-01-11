@@ -35,3 +35,15 @@ export default function Home() {
     </>
   )
 }
+
+
+const topics = [
+  {
+    name:'Physical Causes',
+    link:'physical-causes'
+  },
+  {
+    name:'Psychological Causes',
+    link:'psychological-causes'
+  }
+]

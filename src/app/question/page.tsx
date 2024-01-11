@@ -8,6 +8,8 @@ import PeopleAsk from '../components/question/people-ask'
 import Poll_Section from '../components/poll/poll-sec'
 import VideoSection from '../components/posts/video-sec'
 import LatestPost_sec from '../components/posts/latest-post-sec'
+import FeatureArticle from '../components/question/feature-article'
+import Causes from '../components/question/causes'
 
 export default function Question() {
   return (
@@ -26,7 +28,7 @@ export default function Question() {
           </div>
           <div className='md:w-1/2 w-full'>
             <div className='flex flex-col gap-7'>
-              {Posts.map((item, idx) => {
+              {Posts.slice(1, 4).map((item, idx) => {
                 return (
                   <Latest_Post key={idx} data={item} />
                 )
@@ -38,12 +40,39 @@ export default function Question() {
       </section>
       <Poll_Section />
       <VideoSection />
+      <section className='py-16 bg-zinc-50'>
+        <div className='container mx-auto px-4 relative'>
+          <h2 className='md:text-[40px] leading-[45px] font-medium text-black mb-8'>
+            Featured Articles: Erectile Dysfunction
+          </h2>
+          <div className='grid md:grid-cols-3 grid-cols-1 md:gap-10 gap-7 '>
+            <div className=''>
+              {Posts.slice(0, 1).map((item, idx) => {
+                return (
+                  <FeatureArticle key={idx} data={item} />
+                )
+              })}
+            </div>
+            <div className='md:col-span-2'>
+              <Causes />
+            </div>
+          </div>
+        </div>
+      </section>
       <LatestPost_sec />
     </>
   )
 }
 
 const Posts = [
+  {
+    cate: "Dating & Relationships",
+    link: "#",
+    video: "yAoLSRbwxL8",
+    title: "Aydian Dowling on sexual health and intimacy as a transgender man",
+    excerpt: "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui",
+    comments: "2",
+  },
   {
     cate: "Future Sex",
     link: "#",

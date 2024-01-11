@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PollBox from './poll-box';
 
-const Poll_Section = () => {
+const Poll_Section = ({polls}) => {
     const settings = {
         dots: false,
         infinite: true,
@@ -53,7 +53,7 @@ const Poll_Section = () => {
                     </h2>
                     <div className='mt-3 flex flex-col gap-3'>
                         <Slider ref={slider} {...settings} className='h-full'>
-                            {Poll_Data.map((item, idx) => {
+                            {polls?.map((item, idx) => {
                                 return (
                                     <PollBox key={idx} data={item} />
                                 )

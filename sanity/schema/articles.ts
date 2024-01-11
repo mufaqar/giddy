@@ -44,6 +44,12 @@ export const articles = defineType({
           input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
     }),
+    {
+      name: "featured",
+      type: "boolean",
+      title: "Featured",
+      group: "main",
+    },
     defineField({
       name: "excerpt",
       type: "text",
@@ -106,7 +112,7 @@ export const articles = defineType({
     }),
     defineField({
       name: "videoURL",
-      type: "file",
+      type: "string",
       title: "VideoURL",
       group: "media",
     }),

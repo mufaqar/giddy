@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FeaturedPost from './featured-post';
 
-const FeaturedContent = () => {
+const FeaturedContent = ({featuredArticles}) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -54,7 +54,7 @@ const FeaturedContent = () => {
             </h2>
             <div className='mt-3 flex flex-col gap-3'>
                 <Slider ref={slider} {...settings}>
-                    {Posts.map((item, idx) => {
+                    {featuredArticles?.map((item, idx) => {
                         return (
                             <FeaturedPost key={idx} data={item} custm_class="text-black" />
                         )

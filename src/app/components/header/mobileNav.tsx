@@ -11,7 +11,7 @@ const MobileNav = ({ NavLinks }: any) => {
      }
 
      return (
-          <nav className='absolute bg-white left-0 right-0 p-5 shadow-xl top-[55px] text-black'>
+          <nav className='absolute bg-white left-0 right-0 p-5 shadow-xl top-[55px] text-black z-50'>
                <ul className='items-center capitalize gap-8'>
                     {
                          NavLinks.map((nav: any, idx: number) => (

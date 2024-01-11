@@ -10,7 +10,7 @@ const Banner = () => {
         <div className='flex flex-col gap-7 md:order-1 order-2'>
           {faqs_Data?.map((item: any, idx: Number) => {
             return (
-              <FaqBox key={idx} data={item} />
+              <FaqBox key={idx} idx={idx} data={item} />
             )
           })}
         </div>

@@ -2,19 +2,22 @@ import React, { FC } from 'react'
 import SearchInput from '../serach/SearchInput'
 import AdvanceSearch from '../serach/AdvanceSearch'
 import { IoPlayCircleOutline } from "react-icons/io5";
+import Link from 'next/link';
 
 interface IHero {
      title: string
      info?: string
      bg: string
-     tourVideo: boolean
+     tourVideo?: boolean,
+     topic?:any 
 }
 
 const Hero: FC<IHero> = ({
      title,
      info,
      bg,
-     tourVideo
+     tourVideo,
+     topic
 }) => {
      return (
           <main className={`${bg} text-white -mt-16 `}>
@@ -22,6 +25,13 @@ const Hero: FC<IHero> = ({
                     <div>
                          <h1 className='text-3xl font-semibold text-center md:text-5xl'>{title}</h1>
                          {info && <p className='text-center my-4'>{info}</p>}
+                         {topic?.length > 0 && <ul className='flex justify-center gap-2'>
+                              {
+                                   topic?.map((item:any,idx:number)=>(
+                                        <li key={idx} className='bg-white/60 p-2 px-4 rounded-full text-black hover:scale-105 transition-all duration-200 ease-linear'><Link href={item.link}>{item.name}</Link></li>
+                                   ))
+                              }
+                         </ul>}
                     </div>
                     <div className='md:px-20 mt-8'>
                          <SearchInput />

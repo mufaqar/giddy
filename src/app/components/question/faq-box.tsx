@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { FaChevronCircleUp } from 'react-icons/fa'
 import { MdOutlineThumbUp, MdOutlineThumbDown } from 'react-icons/md'
 
-const FaqBox = ({ data }: any) => {
-    const [open, setOpen] = useState<any>(data.id);
+const FaqBox = ({ data, idx }: any) => {
+    const [open, setOpen] = useState<any>(0);
 
     const handleFaq = (id: any) => {
         if (open === id) {
@@ -13,12 +13,12 @@ const FaqBox = ({ data }: any) => {
         setOpen(id);
     };
     return (
-        <div className={`${open !== data.id ? "opacity-60" : "opacity-100"}`}>
-            <h1 onClick={() => handleFaq(data.id)} className='md:text-2xl text-lg font-medium text-black py-[18px] px-6 bg-white rounded-2xl rounded-br-none shadow-[0_6px_20px_0px_rgba(0,0,0,0.1)] flex justify-between gap-7'>
+        <div className={`${open !== idx ? "opacity-60" : "opacity-100"}`}>
+            <h1 onClick={() => handleFaq(idx)} className='md:text-2xl text-lg font-medium text-black py-[18px] px-6 bg-white rounded-2xl rounded-br-none shadow-[0_6px_20px_0px_rgba(0,0,0,0.1)] flex justify-between gap-7'>
                 How do I tell my partner I have ED?
-                {open !== data.id && <FaChevronCircleUp className="text-[#307FE2]" />}
+                {open !== idx && <FaChevronCircleUp className="text-[#307FE2] mt-1" />}
             </h1>
-            <div className={`bg-white p-6 rounded-[32px] rounded-br-none shadow-[0_6px_20px_0px_rgba(0,0,0,0.1)] mt-7 ${open === data.id ? "block" : "hidden"}`}>
+            <div className={`bg-white p-6 rounded-[32px] rounded-br-none shadow-[0_6px_20px_0px_rgba(0,0,0,0.1)] mt-7 ${open === idx ? "block" : "hidden"}`}>
                 <p className='text-base font-normal text-black mb-5'>
                     Choose a comfortable setting to have an open conversation with your partner about erectile dysfunction. Be honest about your feelings, emphasizing that it's a health issue and not a reflection of your relationship.
                 </p>

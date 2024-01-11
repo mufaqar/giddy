@@ -34,6 +34,10 @@
   font-weight: 600;
 }
 
+[data-testid='group-tab-all-fields'] {
+  display: none !important;
+}
+
 body,
 html {
   font-family: SlatePro;}

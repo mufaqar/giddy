@@ -6,11 +6,11 @@ import { BsPlayCircle } from "react-icons/bs";
 
 interface IFeaturePostProps {
     data: any,
-    custm_class?: string, 
+    custm_class?: string,
     videoSection?: boolean
 }
 
-const FeaturedPost:FC<IFeaturePostProps> = ({ data, custm_class, videoSection }) => {
+const FeaturedPost: FC<IFeaturePostProps> = ({ data, custm_class, videoSection }) => {
 
     return (
         <div className='px-2'>
@@ -19,11 +19,11 @@ const FeaturedPost:FC<IFeaturePostProps> = ({ data, custm_class, videoSection })
                 </div> */}
 
             <div className='rounded-lg relative'>
-                <Image src={data?.image.asset.url} alt="feature" width={224} height={140} className='w-full' />
+                <Image src={data?.image?.asset?.url} alt="feature" width={224} height={140} className='w-full' />
                 {
-                    videoSection && data?.videoURL && <BsPlayCircle className="absolute bottom-3 right-3 text-3xl hover:scale-110 text-white cursor-pointer"/>
+                    videoSection && data?.videoURL && <BsPlayCircle className="absolute bottom-3 right-3 text-3xl hover:scale-110 text-white cursor-pointer" />
                 }
-                
+
             </div>
 
             <Link href={data.slug?.current || `#`} className={`text-base font-medium mt-4 block ${custm_class}`}>

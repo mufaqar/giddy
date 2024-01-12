@@ -23,8 +23,8 @@ const Latest_Post: FC<IPostProps> = ({ data, custm_class }) => {
                 </div> */}
 
             <div className='md:min-w-[280px] w-full md:w-auto overflow-hidden lg:h-[200px] rounded-xl relative'>
-                <Link href={data?.slug?.current}>
-                    <Image src={data?.image.asset.url} alt={data?.title} width={280} height={176} className='w-full object-cover h-full' />
+                <Link href={data?.slug?.current || "#"}>
+                    <Image src={data?.image?.asset?.url} alt={data?.title} width={280} height={176} className='w-full object-cover h-full' />
                 </Link>
                 <div className="bg-black/20 absolute inset-0 overflow-hidden rounded-lg" />
                 {
@@ -36,7 +36,7 @@ const Latest_Post: FC<IPostProps> = ({ data, custm_class }) => {
                 {data?.topic && <Link href={data?.topic[0]?.slug?.current || `#`} className={`md:text-lg text-base font-medium text-[#3185FC] block w-fit ${custm_class}`}>
                     {data?.topic[0]?.name}
                 </Link>}
-                <Link href={data?.slug?.current} className={`md:text-2xl text-xl font-medium text-black mt-2 block w-fit ${custm_class}`}>
+                <Link href={data?.slug?.current || "#"} className={`md:text-2xl text-xl font-medium text-black mt-2 block w-fit ${custm_class}`}>
                     {data?.title}
                 </Link>
                 {data?.excerpt && <p className='md:text-xl text-base font-normal text-black mt-3'>

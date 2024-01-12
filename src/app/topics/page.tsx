@@ -50,8 +50,8 @@ export default function Topics() {
                     </div>
                 </div>
             </section>
-            <VideoSection />
-            <LatestPost_sec />
+            <VideoSection articles={undefined} />
+            <LatestPost_sec articles={[]} />
         </>
     )
 }

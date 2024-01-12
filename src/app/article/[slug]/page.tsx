@@ -1,12 +1,32 @@
 import React from 'react'
-import Navbar from '../components/header/navbar'
-import Breadcrumb from '../components/article/breadcrumb'
+import Navbar from '../../components/header/navbar'
+import Breadcrumb from '../../components/article/breadcrumb'
 import Image from 'next/image'
-import Article_Sidebar from '../components/article/sidebar'
-import Latest_Post from '../components/posts/latest-post'
-import ShareButtons from '../components/article/share-buttons'
+import Article_Sidebar from '../../components/article/sidebar'
+import Latest_Post from '../../components/posts/latest-post'
+import ShareButtons from '../../components/article/share-buttons'
+import { client } from '../../../../sanity/lib/client'
+import { QArticles, QSingleArticles } from '../../../../sanity/lib/queries'
+import { ConvertDate } from '@/utils'
+import { PortableText } from '@portabletext/react'
 
-export default function Sing_Article() {
+const getData = async (slug: any): Promise<any> => {
+    const article = await client.fetch(QSingleArticles, {
+        slug: slug
+    });
+    const articles = await client.fetch(QArticles);
+
+    return {
+        article,
+        articles
+    };
+};
+
+export default async function Sing_Article(props: any) {
+    const { article, articles } = await getData(props?.params?.slug)
+    const relatedArticles = articles.filter((item:any)=>item.topic.some( (t:any)=>t.name === article.topic[0].name ))
+
+
     return (
         <>
             <Navbar color='#000' />
@@ -18,59 +38,37 @@ export default function Sing_Article() {
                         </div>
                         <div className='my-10'>
                             <h1 className='md:text-5xl text-3xl font-medium text-black'>
-                                What Are the Symptoms of Breast Cancer?
+                                {article.title}
                             </h1>
                             <p className='md:text-2xl text-lg font-medium text-black mt-4 mb-10'>
-                                Empowering awareness: Navigating breast cancer symptoms – A comprehensive guide for early detection and informed decision-making.
+                                {article.excerpt}
                             </p>
                             <p className='md:text-xl text-base font-medium text-black'>
-                                By: Ashley Broadwater and Molly Armstrong
+                                By: {article?.writtenby.name}
                             </p>
                             <ul className='md:text-xl text-base font-medium text-[#868686] flex justify-between flex-wrap'>
                                 <li>
                                     Reviewed by: Jillian Rowbotham, D.O.
                                 </li>
                                 <li>
-                                    Published May 05, 2023
+                                    Published {ConvertDate(article?._updatedAt)}
                                 </li>
                             </ul>
                             <div className='md:absolute top-1/2 left-0 static md:mt-0 mt-5'>
                                 <ShareButtons />
                             </div>
-                            <div className='my-8'>
-                                <Image src="/images/article/1.png" alt='feature' width={868} height={524} className='h-full w-full' />
+                            <div className='my-8 rounded-3xl overflow-hidden'>
+                                <Image src={article?.image?.asset?.url} alt={article?.title} width={868} height={524} className='h-full w-full' />
                             </div>
                         </div>
                     </div>
                     <div className='container mx-auto px-4 md:pl-[200px] flex md:flex-row flex-col gap-7'>
                         <div className='md:w-2/3 w-full ml-auto border-b border-[#C6C6C6] pb-16'>
-                            <h2 className='md:text-5xl text-3xl font-medium text-black'>
-                                Learn the potential complications, causes, treatment and other details you need to know.
-                            </h2>
-                            <p className='text-lg font-normal text-black mt-5'>
-                                You or someone you know will likely have breast cancer at some point in your life. It’s scary to think about but hard to ignore. Other than skin cancer, breast cancer is the most common type of cancer in the United States.
-                            </p>
-                            <p className='text-lg font-normal text-black mt-5'>
-                                That’s a big reason breast cancer awareness, education and screenings are all so important.
-                            </p>
-                            <h2 className='md:text-5xl text-3xl font-medium text-black mt-10'>
-                                Breast Cancer Prevalence
-                            </h2>
-                            <p className='text-lg font-normal text-black mt-5'>
-                                Statistically, 1 in 8 women will receive a breast cancer diagnosis, and a smaller number of males will. Roughly 5 percent of people are diagnosed with stage IV cancer. The other 95 percent receive their diagnosis earlier, before it metastasizes.
-                                Detecting it sooner rather than later is always best. The five-year relative survival rate for breast cancer is 99 percent if it is detected in the localized stage and 86 percent at the regional stage.
-                            </p>
-                            <p className='text-lg font-normal text-black mt-5'>
-                                The most prominent early warning sign of breast cancer is a breast lump.
-                                "Although there are many different presentations of breast cancer, a palpable lump is the most common and can occur within the breast to the armpit," said Kenneth Meng, M.D., a diagnostic radiologist with the Center for Cancer Prevention and Treatment at Providence St. Joseph Hospital in Orange County, California.
-                            </p>
-                            <h2 className='md:text-5xl text-3xl font-medium text-black mt-10'>
-                                Breast Cancer Screening
-                            </h2>
-                            <p className='text-lg font-normal text-black mt-5'>
-                                "Not every lump is breast cancer, as benign cysts or fibroadenomas can also be felt on [a] physical exam," Meng said. "However, it is important to have any lump checked out."
-                                Guidelines as to whether to have a clinical breast exam—a physical examination by a doctor—vary.
-                            </p>
+                            <div className="content">
+                                <PortableText
+                                    value={article?.content}
+                                />
+                            </div>
                             <div className='flex md:flex-row flex-col gap-5 justify-between items-center mt-8'>
                                 <h3 className='md:text-[32px] md:leading-[38px] text-2xl font-medium text-black'>
                                     The common symptoms of breast cancer include <span className='text-[#F8485E]'>bone pain, fatigue, weight loss, coughing or shortness of breath, jaundice, seizures, headaches and vision changes</span>, too, according to Farrington.
@@ -98,7 +96,7 @@ export default function Sing_Article() {
                                 Related Articles
                             </h2>
                             <div className='flex flex-col gap-7'>
-                                {Posts?.map((item, idx) => {
+                                {relatedArticles?.map((item:any, idx:number) => {
                                     return (
                                         <Latest_Post key={idx} data={item} />
                                     )
@@ -127,7 +125,7 @@ const Posts = [
         img: "/images/feature/1.png",
         title: "Our Sex Drive Drives Technological Innovation",
         excerpt: "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui",
-        authore:"By María Cristina Lalonde",
+        authore: "By María Cristina Lalonde",
         comments: "9",
     },
     {
@@ -136,7 +134,7 @@ const Posts = [
         img: "/images/feature/2.png",
         title: "Using Dating Apps to Discover Your Sexuality",
         excerpt: "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui",
-        authore:"By María Cristina Lalonde",
+        authore: "By María Cristina Lalonde",
         comments: "9",
     },
 ]

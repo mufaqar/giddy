@@ -1,8 +1,20 @@
 import React from 'react'
 import Navbar from '../components/header/navbar'
 import ReviewBpx from '../components/review/review-box'
+import { client } from '../../../sanity/lib/client';
+import { QReviews } from '../../../sanity/lib/queries';
+import { IReviewProps } from '@/types/types';
 
-export default function Reviews() {
+const getData = async (): Promise<any> => {
+    const allreview = await client.fetch(QReviews);
+    return {
+        allreview,
+    };
+  };
+
+
+export default async function Reviews() {
+    const { allreview } = await getData()    
     return (
         <>
             <Navbar color='#fff' />
@@ -25,8 +37,8 @@ export default function Reviews() {
                         Our Medical Reviewers
                     </h2>
                     <div className='grid md:grid-cols-3 grid-cols-1 gap-10'>
-                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item, idx) => {
-                            return (<ReviewBpx key={idx} />
+                        {allreview?.map((item: IReviewProps, idx:number) => {
+                            return (<ReviewBpx key={idx} data={item}/>
                             )
                         })}
                     </div>

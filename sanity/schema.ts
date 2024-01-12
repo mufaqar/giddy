@@ -4,7 +4,8 @@ import { comments } from './schema/comments'
 import { topics } from './schema/topics'
 import { author } from './schema/author'
 import { polls } from './schema/polls'
+import { reviews } from './schema/reviews'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [articles, topics, comments, author, polls],
+  types: [articles, topics, comments, author, polls, reviews],
 }

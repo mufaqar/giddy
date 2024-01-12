@@ -60,3 +60,17 @@ export interface ITopics {
   _createdAt: string
   _rev: string
 }
+
+
+export interface IReviewProps {
+  name: string,
+  review: string,
+  twitter_link: string,
+  linkedin_link: string,
+  insta_link: string,
+  image:{
+      asset : {
+          url: string
+      }
+  }
+}

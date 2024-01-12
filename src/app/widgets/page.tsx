@@ -8,7 +8,7 @@ import LatestPost_sec from '../components/posts/latest-post-sec'
 export default function Widgets() {
     return (
         <>
-        <section className='py-16'>
+        {/* <section className='py-16'>
             <div className='container mx-auto px-4 grid md:grid-cols-4 grid-cols-1 gap-7 '>
                 <div className=''>
                     <Trendingposts />
@@ -20,7 +20,7 @@ export default function Widgets() {
         </section>
         <VideoSection />
         <Poll_Section />
-        <LatestPost_sec />
+        <LatestPost_sec /> */}
         </>
     )
 }

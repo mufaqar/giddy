@@ -29,7 +29,7 @@ export default async function Home() {
     articles,
     polls,
     topics,
-    featuredArticles
+    featuredArticlesgitgit
   } = await getData();
 
   const videoPost = articles.filter((item:IArticle)=>item?.videoURL?.length > 10)

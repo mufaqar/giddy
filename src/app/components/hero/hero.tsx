@@ -24,7 +24,6 @@ const Hero: FC<IHero> = ({
      topic
 }) => {
      const params = useParams<any>()
-     console.log("🚀 ~ params:", params)
 
      return (
           <main className={`${bg} text-white -mt-16 `}>

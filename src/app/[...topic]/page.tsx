@@ -8,7 +8,7 @@ import Causes from '../components/question/causes'
 import FeatureArticle from '../components/question/feature-article'
 import VideoSection from '../components/posts/video-sec'
 import LatestPost_sec from '../components/posts/latest-post-sec'
-import { QArticles, QFeaturedArticles, QSingleTopic, QTopics } from '../../../sanity/lib/queries'
+import { QArticles, QFeaturedArticles, QSingleSubTopic, QSingleTopic } from '../../../sanity/lib/queries'
 import { client } from '../../../sanity/lib/client'
 import { IArticle } from '@/types/types'
 
@@ -16,12 +16,12 @@ import { IArticle } from '@/types/types'
 const getData = async (slug: any): Promise<any> => {
     const articles = await client.fetch(QArticles);
     const featureArticles = await client.fetch(QFeaturedArticles);
-    const topic = await client.fetch(QSingleTopic, {
-        slug: slug
+    const topic = await client.fetch( slug.length > 1 ? QSingleSubTopic : QSingleTopic, {
+        slug: slug.length > 1 ? slug[1] : slug[0]
     });
 
-    var featureArticlesByTopics = featureArticles?.filter((item:any) => item.topic.slug.current === slug )
-  
+    var featureArticlesByTopics = featureArticles?.filter((item:any) => item.topic.slug.current === slug[0] )
+    
     return {
       articles,
       topic,
@@ -46,7 +46,7 @@ export default async function Topics(props:any) {
             <section className='!text-black'>
                 <Hero title={topic?.name} bg="hero-gradient2" topic={topic?.subtopics} />
             </section>
-             <section className='py-16'>
+            <section className='py-16'>
                 <div className='container mx-auto px-4 flex md:flex-row flex-col md:gap-10 gap-7'>
                     <div className='md:w-1/2 w-full'>
                         <CauseTags data={topic}/>

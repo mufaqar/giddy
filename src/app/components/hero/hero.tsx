@@ -5,7 +5,7 @@ import SearchInput from '../serach/SearchInput'
 import AdvanceSearch from '../serach/AdvanceSearch'
 import { IoPlayCircleOutline } from "react-icons/io5";
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 interface IHero {
      title: string
@@ -22,8 +22,7 @@ const Hero: FC<IHero> = ({
      tourVideo,
      topic
 }) => {
-     const pathname = usePathname()
-     console.log("🚀 ~ pathname:", pathname)
+     const params = useParams()
 
      return (
           <main className={`${bg} text-white -mt-16 `}>
@@ -34,7 +33,7 @@ const Hero: FC<IHero> = ({
                          {topic?.length > 0 && <ul className='flex justify-center gap-2 mt-5'>
                               {
                                    topic?.map((item:any,idx:number)=>(
-                                        <li key={idx} className='bg-white/60 p-2 px-4 rounded-full text-black hover:scale-105 transition-all duration-200 ease-linear'><Link href={`${pathname}/${item.slug.current}`}>{item.name}</Link></li>
+                                        <li key={idx} className='bg-white/60 p-2 px-4 rounded-full text-black hover:scale-105 transition-all duration-200 ease-linear'><Link href={`${params.topic[0]}/${item.slug.current}`}>{item.name}</Link></li>
                                    ))
                               }
                          </ul>}

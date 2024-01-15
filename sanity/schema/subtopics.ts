@@ -50,6 +50,48 @@ export const subTopics = defineType({
           },
         ],
       },
+      {
+        name: "readmore",
+        title: "Read More",
+        type: "array",
+        of: [
+          {
+            type: "block",
+          },
+          {
+            type: "image",
+            fields: [
+              {
+                type: "text",
+                name: "alt",
+                title: "Alternative text",
+                description: `Some of your visitors cannot see images, 
+                             be they blind, color-blind, low-sighted; 
+                             alternative text is of great help for those 
+                             people that can rely on it to have a good idea of 
+                             what\'s on your page.`,
+                options: {
+                  isHighlighted: true,
+                },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Tags",
+        type: "array",
+        name: "tags",
+        of: [
+          {
+            type: "object",
+            name: "inline",
+            fields: [
+              { type: "string", name: "tag" },
+            ]
+          }
+        ],
+      },
       defineField({
         title: "People Also Ask",
         name: "peopleAlsoAsk",

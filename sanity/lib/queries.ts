@@ -1,4 +1,3 @@
-
 export const QArticles = `*[ _type == "articles"] | order(_createdAt desc){
      _id,
      _createdAt,
@@ -6,9 +5,12 @@ export const QArticles = `*[ _type == "articles"] | order(_createdAt desc){
      title,
      slug,
      excerpt,
-     topic[]->{
+     topic->{
           name,
-          slug
+          slug,
+          subtopics[]->{
+               name, slug
+          },
      },
      featured,
      content,
@@ -26,7 +28,7 @@ export const QArticles = `*[ _type == "articles"] | order(_createdAt desc){
      videoURL,
      metatitle,
      metadescription
-}`
+}`;
 
 export const QFeaturedArticles = `*[ _type == "articles" && featured == true ] | order(_updatedAt desc){
      _id,
@@ -55,11 +57,11 @@ export const QFeaturedArticles = `*[ _type == "articles" && featured == true ] |
      videoURL,
      metatitle,
      metadescription
-}`
+}`;
 
-export const QPolls = `*[ _type == "polls"] | order(_createdAt asc)`
+export const QPolls = `*[ _type == "polls"] | order(_createdAt asc)`;
 
-export const QTopics = `*[ _type == "topics"] | order(_createdAt asc)`
+export const QTopics = `*[ _type == "topics"] | order(_createdAt asc)`;
 
 export const QReviews = `*[ _type == "reviews"] | order(_createdAt asc){
      name,
@@ -72,8 +74,7 @@ export const QReviews = `*[ _type == "reviews"] | order(_createdAt asc){
                url
           }
      }
-}`
-
+}`;
 
 export const QSingleArticles = `*[ _type == "articles" && slug.current == $slug][0]{
      _id,
@@ -102,7 +103,7 @@ export const QSingleArticles = `*[ _type == "articles" && slug.current == $slug]
      videoURL,
      metatitle,
      metadescription
-}`
+}`;
 
 export const QSingleTopic = `*[ _type == "topics" && slug.current == $slug][0]{
      name,
@@ -120,4 +121,19 @@ export const QSingleTopic = `*[ _type == "topics" && slug.current == $slug][0]{
           slug,
      }
 }
-`
+`;
+
+export const QSingleSubTopic = `*[ _type == "subTopics" && slug.current == $slug][0]{
+     name,
+     slug,
+     content,
+     readmore,
+     tags[]{
+          tag
+     },
+     peopleAlsoAsk[]->{
+          title,
+          slug,
+     }
+}
+`;

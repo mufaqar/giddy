@@ -54,7 +54,7 @@ export default function Question() {
               })}
             </div>
             <div className='md:col-span-2'>
-              <Causes />
+              <Causes data={undefined} />
             </div>
           </div>
         </div>

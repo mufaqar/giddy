@@ -35,7 +35,7 @@ export const QFeaturedArticles = `*[ _type == "articles" && featured == true ] |
      title,
      slug,
      excerpt,
-     topic[]->{
+     topic->{
           name,
           slug
      },
@@ -103,3 +103,21 @@ export const QSingleArticles = `*[ _type == "articles" && slug.current == $slug]
      metatitle,
      metadescription
 }`
+
+export const QSingleTopic = `*[ _type == "topics" && slug.current == $slug][0]{
+     name,
+     slug,
+     subtopics[]->{
+          name, slug
+     },
+     content,
+     readmore,
+     tags[]{
+          tag
+     },
+     peopleAlsoAsk[]->{
+          title,
+          slug,
+     }
+}
+`

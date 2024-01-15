@@ -1,9 +1,9 @@
 import { defineField, defineType } from "sanity";
 
-export const topics = defineType({
-     name: "topics",
+export const subTopics = defineType({
+     name: "subTopics",
      type: "document",
-     title: "Topics",
+     title: "Sub Topics",
      
      fields: [
       defineField({
@@ -22,62 +22,9 @@ export const topics = defineType({
             input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
         },
       }),
-      defineField({
-        title: "Sub Topics",
-        name: "subtopics",
-        type: "array",
-        of: [
-          {
-            type: "reference",
-            to: [{ type: "subTopics" }],
-          },
-        ],
-      }),
       {
         name: "content",
-        title: "Excerpt",
-        type: "array",
-        of: [
-          {
-            type: "block",
-          },
-          {
-            type: "image",
-            fields: [
-              {
-                type: "text",
-                name: "alt",
-                title: "Alternative text",
-                description: `Some of your visitors cannot see images, 
-                             be they blind, color-blind, low-sighted; 
-                             alternative text is of great help for those 
-                             people that can rely on it to have a good idea of 
-                             what\'s on your page.`,
-                options: {
-                  isHighlighted: true,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: "Tags",
-        type: "array",
-        name: "tags",
-        of: [
-          {
-            type: "object",
-            name: "inline",
-            fields: [
-              { type: "string", name: "tag" },
-            ]
-          }
-        ],
-      },
-      {
-        name: "readmore",
-        title: "Read More",
+        title: "Content",
         type: "array",
         of: [
           {
@@ -113,6 +60,6 @@ export const topics = defineType({
             to: [{ type: "articles" }],
           },
         ],
-      }),
-     ]
+      }), 
+    ]
  })

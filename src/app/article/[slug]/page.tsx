@@ -22,10 +22,9 @@ const getData = async (slug: any): Promise<any> => {
     };
 };
 
-export default async function Sing_Article(props: any) {
+export default async function SingArticle(props: any) {
     const { article, articles } = await getData(props?.params?.slug)
-    const relatedArticles = articles.filter((item:any)=>item.topic.some( (t:any)=>t.name === article.topic[0].name ))
-
+    const relatedArticles = articles.filter((item:any)=>item.topic?.name === article.topic?.name )
 
     return (
         <>

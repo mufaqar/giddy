@@ -26,7 +26,7 @@ const FeaturedPost: FC<IFeaturePostProps> = ({ data, custm_class, videoSection }
 
             </div>
 
-            <Link href={data.slug?.current || `#`} className={`text-base font-medium mt-4 block ${custm_class}`}>
+            <Link href={'/article/' + data.slug?.current || `#`} className={`text-base font-medium mt-4 block ${custm_class}`}>
                 {data?.title}
             </Link>
             {videoSection && <ul className='flex gap-2 items-center mt-3'>

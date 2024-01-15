@@ -25,7 +25,7 @@ const FeatureArticle = ({ data, custm_class }: any) => {
                     {data?.cate && <Link href="#" className={`md:text-lg text-base font-medium text-[#3185FC] block w-fit ${custm_class}`}>
                         {data?.cate}
                     </Link>}
-                    <Link href={`/article/${data.slug.current}`} className={`md:text-[32px] md:leading-[45px] text-xl font-medium text-black mt-2 block w-fit ${custm_class}`}>
+                    <Link href={`/article/${data.slug?.current}`} className={`md:text-[32px] md:leading-[45px] text-xl font-medium text-black mt-2 block w-fit ${custm_class}`}>
                         {data?.title}
                     </Link>
                     {data?.excerpt && <p className='md:text-base text-base font-normal text-[#868686] mt-3'>

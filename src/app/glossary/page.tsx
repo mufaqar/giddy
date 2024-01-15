@@ -3,42 +3,26 @@ import Navbar from '../components/header/navbar'
 import Hero from '../components/hero/hero'
 import GlosaryBox from '../components/glossary/glosary-box'
 import FeatureArticle from '../components/question/feature-article'
+import { alphabetArray } from '@/utils'
+import Link from 'next/link'
 
-export default function Glossary() {
+
+export default async function Glossary() {
+
     return (
         <>
             <Navbar color='#fff' />
             <Hero title={'Search our glossary by topic.'} bg={'hero-gradient'} />
             <section className='py-16'>
                 <div className='container mx-auto px-4'>
-                    <div className='text-xl font-medium text-black flex justify-between mb-10'>
-                        <p>A</p>
-                        <p>B</p>
-                        <p>C</p>
-                        <p>D</p>
-                        <p>E</p>
-                        <p>F</p>
-                        <p>G</p>
-                        <p>H</p>
-                        <p>I</p>
-                        <p>J</p>
-                        <p>K</p>
-                        <p>L</p>
-                        <p>M</p>
-                        <p>N</p>
-                        <p>O</p>
-                        <p>P</p>
-                        <p>Q</p>
-                        <p>R</p>
-                        <p>S</p>
-                        <p>T</p>
-                        <p>U</p>
-                        <p>V</p>
-                        <p>W</p>
-                        <p>X</p>
-                        <p>Y</p>
-                        <p>Z</p>
-                    </div>
+                    <ul className='text-xl uppercase cursor-pointer font-medium text-black flex justify-between mb-10'>
+                        {alphabetArray?.map((letter:any) => (
+                            <li key={letter} className='hover:text-gray-400'>
+                                <Link href={`#${letter}`}>{letter}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                   
                     <div className='flex md:flex-row flex-col md:gap-10 gap-7'>
                         <div className='md:w-2/3 w-full md:pr-10'>
                             <GlosaryBox />

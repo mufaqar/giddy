@@ -21,7 +21,7 @@ export default function Question() {
       <section className='py-16'>
         <div className='container mx-auto px-4 flex md:flex-row flex-col md:gap-10 gap-7'>
           <div className='md:w-1/2 w-full'>
-            <CauseTags />
+            {/* <CauseTags /> */}
             <div className='mt-10'>
               <PeopleAsk />
             </div>

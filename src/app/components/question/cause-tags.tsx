@@ -5,7 +5,6 @@ import { FaArrowRightLong, FaRegBookmark } from 'react-icons/fa6'
 import { PortableText } from '@portabletext/react'
 
 const CauseTags = ({ data }: any) => {
-    console.log("🚀 ~ CauseTags ~ data:", data)
     const [open, setOpen] = useState<any>(false);
 
     const handleOpenReadMore = () => {

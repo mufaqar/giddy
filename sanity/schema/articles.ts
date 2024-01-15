@@ -57,16 +57,18 @@ export const articles = defineType({
       group: "main",
     }),
     defineField({
+      title: "Subject",
+      name: "subject",
+      type: "reference",
+      group: "main",
+      to: [{ type: "subject" }],
+    }),
+    defineField({
       title: "Topic",
       name: "topic",
-      type: "array",
+      type: "reference",
       group: "main",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "topics" }],
-        },
-      ],
+      to: [{ type: "topics" }],
     }),
     {
       name: "content",
@@ -126,6 +128,13 @@ export const articles = defineType({
       name: "metadescription",
       type: "text",
       title: "Meta Description",
+      group: "seo",
+    }),
+    defineField({
+      name: "metaKeywords",
+      description: 'please seprate keyword with "," eg:( keyword1, keyword2, ... ) ',
+      type: "text",
+      title: "Meta Keywords",
       group: "seo",
     }),
   ],

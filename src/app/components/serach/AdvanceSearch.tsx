@@ -4,7 +4,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 const AdvanceSearch = () => {
      return (
           <div className='flex items-center gap-2 justify-end mt-5'>
-               <span className="ms-3 text-sm font-medium text-white dark:text-gray-300 flex items-center gap-1">
+               <span className="ms-3 text-sm font-medium flex items-center gap-1">
                     Advanced search 
                     <AiOutlineInfoCircle className="text-lg"/>
                </span>

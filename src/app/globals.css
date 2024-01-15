@@ -97,3 +97,7 @@ html {
   font-weight: 400;
   margin-bottom: 20px;
 }
+
+.hero-gradient2 {
+  background: radial-gradient(87.84% 96.69% at 60.56% 50%, rgba(255, 255, 255, 0.03) 0%, rgba(11, 65, 255, 0.14) 100%), #D3E2FF;
+}

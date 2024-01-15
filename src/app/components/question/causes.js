@@ -7,7 +7,7 @@ import Link from 'next/link';
 import FeaturedPost from '../posts/featured-post';
 import Latest_Post from '../posts/latest-post';
 
-const Causes = () => {
+const Causes = ({data}) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -27,7 +27,7 @@ const Causes = () => {
             </h2>
             <div className='mt-3 flex flex-col gap-7'>
                 <Slider ref={slider} {...settings}>
-                    {Posts.map((item, idx) => {
+                    {data?.map((item, idx) => {
                         return (
                             <div key={idx} className='p-3 w-full'>
                                 <Latest_Post data={item} custm_class="text-black" />

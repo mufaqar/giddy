@@ -1,9 +1,9 @@
 import { defineField, defineType } from "sanity";
 
-export const topics = defineType({
-     name: "topics",
+export const subTopics = defineType({
+     name: "subTopics",
      type: "document",
-     title: "Topics",
+     title: "Sub Topics",
      
      fields: [
       defineField({
@@ -22,20 +22,37 @@ export const topics = defineType({
             input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
         },
       }),
-      defineField({
-        title: "Sub Topics",
-        name: "subtopics",
+      {
+        name: "content",
+        title: "Content",
         type: "array",
         of: [
           {
-            type: "reference",
-            to: [{ type: "subTopics" }],
+            type: "block",
+          },
+          {
+            type: "image",
+            fields: [
+              {
+                type: "text",
+                name: "alt",
+                title: "Alternative text",
+                description: `Some of your visitors cannot see images, 
+                             be they blind, color-blind, low-sighted; 
+                             alternative text is of great help for those 
+                             people that can rely on it to have a good idea of 
+                             what\'s on your page.`,
+                options: {
+                  isHighlighted: true,
+                },
+              },
+            ],
           },
         ],
-      }),
+      },
       {
-        name: "content",
-        title: "Excerpt",
+        name: "readmore",
+        title: "Read More",
         type: "array",
         of: [
           {
@@ -75,34 +92,6 @@ export const topics = defineType({
           }
         ],
       },
-      {
-        name: "readmore",
-        title: "Read More",
-        type: "array",
-        of: [
-          {
-            type: "block",
-          },
-          {
-            type: "image",
-            fields: [
-              {
-                type: "text",
-                name: "alt",
-                title: "Alternative text",
-                description: `Some of your visitors cannot see images, 
-                             be they blind, color-blind, low-sighted; 
-                             alternative text is of great help for those 
-                             people that can rely on it to have a good idea of 
-                             what\'s on your page.`,
-                options: {
-                  isHighlighted: true,
-                },
-              },
-            ],
-          },
-        ],
-      },
       defineField({
         title: "People Also Ask",
         name: "peopleAlsoAsk",
@@ -113,6 +102,6 @@ export const topics = defineType({
             to: [{ type: "articles" }],
           },
         ],
-      }),
-     ]
+      }), 
+    ]
  })

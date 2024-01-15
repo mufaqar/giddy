@@ -5,7 +5,9 @@ import { topics } from './schema/topics'
 import { author } from './schema/author'
 import { polls } from './schema/polls'
 import { reviews } from './schema/reviews'
+import { subject } from './schema/subject'
+import { subTopics } from './schema/subtopics'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [articles, topics, comments, author, polls, reviews],
+  types: [articles, subject, topics, subTopics, comments, author, polls, reviews],
 }

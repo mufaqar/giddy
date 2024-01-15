@@ -44,3 +44,10 @@ export const ConvertDate = (inputDateString: any) => {
   var outputDateString = dateObject.toLocaleDateString("en-US", options);
   return outputDateString
 };
+
+
+export const replaceAndCap = (str:any) => {
+  const stringWithSpaces = str.replace(/-/g, ' ');
+  const capitalizedString = stringWithSpaces.replace(/\b\w/g, (firstLetter:any) => firstLetter.toUpperCase());
+  return capitalizedString
+}

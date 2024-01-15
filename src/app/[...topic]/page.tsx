@@ -16,27 +16,35 @@ import { IArticle } from '@/types/types'
 const getData = async (slug: any): Promise<any> => {
     const articles = await client.fetch(QArticles);
     const featureArticles = await client.fetch(QFeaturedArticles);
-    const topic = await client.fetch( slug.length > 1 ? QSingleSubTopic : QSingleTopic, {
+    const topic = await client.fetch(slug.length > 1 ? QSingleSubTopic : QSingleTopic, {
         slug: slug.length > 1 ? slug[1] : slug[0]
     });
 
-    var featureArticlesByTopics = featureArticles?.filter((item:any) => item.topic.slug.current === slug[0] )
-    
+    var featureArticlesByTopics
+
+    if (slug.length > 1) {
+        featureArticlesByTopics = featureArticles.filter((item: any) => {
+            return item?.topic?.subtopics?.some((subtopic: any) => subtopic.slug.current === slug[1]);
+        });
+    } else {
+        featureArticlesByTopics = featureArticles?.filter((item: any) => item.topic?.slug?.current === slug[0])
+    }
+
     return {
-      articles,
-      topic,
-      featureArticlesByTopics
+        articles,
+        topic,
+        featureArticlesByTopics
     };
 };
 
-export default async function Topics(props:any) {
+export default async function Topics(props: any) {
     const {
         articles,
         topic,
         featureArticlesByTopics
     } = await getData(props.params.topic);
-    
-    const videoPost = articles.filter((item:IArticle)=>item?.videoURL?.length > 10)
+
+    const videoPost = articles.filter((item: IArticle) => item?.videoURL?.length > 10)
 
     return (
         <>
@@ -49,11 +57,11 @@ export default async function Topics(props:any) {
             <section className='py-16'>
                 <div className='container mx-auto px-4 flex md:flex-row flex-col md:gap-10 gap-7'>
                     <div className='md:w-1/2 w-full'>
-                        <CauseTags data={topic}/>
+                        <CauseTags data={topic} />
                     </div>
                     <div className='md:w-1/2 w-full'>
                         <div className='mb-10'>
-                            <PeopleAsk data={topic?.peopleAlsoAsk}/>
+                            <PeopleAsk data={topic?.peopleAlsoAsk} />
                         </div>
                         <Joinform />
                     </div>
@@ -66,20 +74,20 @@ export default async function Topics(props:any) {
                     </h2>
                     <div className='grid md:grid-cols-3 grid-cols-1 md:gap-10 gap-7 '>
                         <div className=''>
-                            {featureArticlesByTopics?.slice(0, 1).map((item:any, idx:number) => {
+                            {featureArticlesByTopics?.slice(0, 1).map((item: any, idx: number) => {
                                 return (
                                     <FeatureArticle key={idx} data={item} />
                                 )
                             })}
                         </div>
                         <div className='md:col-span-2'>
-                            <Causes data={featureArticlesByTopics.slice(1,10)}/>
+                            <Causes data={featureArticlesByTopics.slice(1, 10)} />
                         </div>
                     </div>
                 </div>
             </section>
             <VideoSection articles={videoPost} />
-            <LatestPost_sec articles={articles.slice(0,3)} />
+            <LatestPost_sec articles={articles.slice(0, 3)} />
         </>
     )
 }

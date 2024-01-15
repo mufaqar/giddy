@@ -39,7 +39,10 @@ export const QFeaturedArticles = `*[ _type == "articles" && featured == true ] |
      excerpt,
      topic->{
           name,
-          slug
+          slug,
+          subtopics[]->{
+               name, slug
+          },
      },
      featured,
      content,

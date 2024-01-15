@@ -13,7 +13,8 @@ interface IHero {
      info?: string
      bg: string
      tourVideo?: boolean,
-     topic?: any
+     topic?: any,
+     color?: string
 }
 
 const Hero: FC<IHero> = ({
@@ -21,17 +22,17 @@ const Hero: FC<IHero> = ({
      info,
      bg,
      tourVideo,
-     topic
+     topic,
+     color
 }) => {
      const params = useParams<any>()
 
      return (
-          <main className={`${bg} text-white -mt-16 `}>
+          <main className={`${bg} ${color === '#000' ? 'text-black' : 'text-white'}  -mt-16`}>
                <div className='max-w-[870px] mx-auto px-2 md:px-0 py-20 pt-28 relative'>
                     <div>
-                         
                          {
-                              params?.topic.length > 1 && 
+                              params?.topic?.length > 1 && 
                               <ul className='flex items-center justify-center gap-2 mb-5'>
                                   <li className='bg-white/60 p-2 px-4 rounded-full text-gray-500 hover:scale-105 transition-all duration-200 ease-linear'><Link href={`/${params.topic[0]}`}>{replaceAndCap(params.topic[0])}</Link></li>
                                   <li className="text-3xl">/</li>

@@ -52,7 +52,7 @@ export default async function Topics(props: any) {
                 color='#000'
             />
             <section className='!text-black'>
-                <Hero title={topic?.name} bg="hero-gradient2" topic={topic?.subtopics} />
+                <Hero title={topic?.name} bg="hero-gradient2" topic={topic?.subtopics} color='#000' />
             </section>
             <section className='py-16'>
                 <div className='container mx-auto px-4 flex md:flex-row flex-col md:gap-10 gap-7'>

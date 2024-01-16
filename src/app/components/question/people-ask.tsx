@@ -13,8 +13,8 @@ const PeopleAsk = ({data}:any) => {
                 {data?.map((item: any, idx: any) => {
                     return (<div key={idx} className='py-[12px] px-5 bg-white rounded-2xl rounded-br-none border border-[#C8C8C8] flex gap-5 items-center'>
                         <GrSearch className="text-[#307FE2] cursor-pointer hover:scale-105 text-xl" />
-                        <Link href={`/article/${item.slug.current}`} className='text-base cursor-pointer font-normal text-black'>
-                            {item.title}
+                        <Link href={`/question/${item.slug.current}`} className='text-base cursor-pointer font-normal text-black'>
+                            {item.question}
                         </Link>
                     </div>
                     )

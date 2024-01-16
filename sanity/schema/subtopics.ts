@@ -22,72 +22,73 @@ export const subTopics = defineType({
             input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
         },
       }),
+      
       {
-        name: "content",
         title: "Content",
         type: "array",
-        of: [
-          {
-            type: "block",
-          },
-          {
-            type: "image",
-            fields: [
-              {
-                type: "text",
-                name: "alt",
-                title: "Alternative text",
-                description: `Some of your visitors cannot see images, 
-                             be they blind, color-blind, low-sighted; 
-                             alternative text is of great help for those 
-                             people that can rely on it to have a good idea of 
-                             what\'s on your page.`,
-                options: {
-                  isHighlighted: true,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: "readmore",
-        title: "Read More",
-        type: "array",
-        of: [
-          {
-            type: "block",
-          },
-          {
-            type: "image",
-            fields: [
-              {
-                type: "text",
-                name: "alt",
-                title: "Alternative text",
-                description: `Some of your visitors cannot see images, 
-                             be they blind, color-blind, low-sighted; 
-                             alternative text is of great help for those 
-                             people that can rely on it to have a good idea of 
-                             what\'s on your page.`,
-                options: {
-                  isHighlighted: true,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: "Tags",
-        type: "array",
-        name: "tags",
+        name: "content",
         of: [
           {
             type: "object",
             name: "inline",
             fields: [
-              { type: "string", name: "tag" },
+              { type: "string", name: "Title" },
+              {
+                name: "excerpt",
+                title: "Excerpt",
+                type: "array",
+                of: [
+                  {
+                    type: "block",
+                  },
+                  {
+                    type: "image",
+                    fields: [
+                      {
+                        type: "text",
+                        name: "alt",
+                        title: "Alternative text",
+                        description: `Some of your visitors cannot see images, 
+                                     be they blind, color-blind, low-sighted; 
+                                     alternative text is of great help for those 
+                                     people that can rely on it to have a good idea of 
+                                     what\'s on your page.`,
+                        options: {
+                          isHighlighted: true,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "readmore",
+                title: "Read More",
+                type: "array",
+                of: [
+                  {
+                    type: "block",
+                  },
+                  {
+                    type: "image",
+                    fields: [
+                      {
+                        type: "text",
+                        name: "alt",
+                        title: "Alternative text",
+                        description: `Some of your visitors cannot see images, 
+                                     be they blind, color-blind, low-sighted; 
+                                     alternative text is of great help for those 
+                                     people that can rely on it to have a good idea of 
+                                     what\'s on your page.`,
+                        options: {
+                          isHighlighted: true,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
             ]
           }
         ],
@@ -99,7 +100,7 @@ export const subTopics = defineType({
         of: [
           {
             type: "reference",
-            to: [{ type: "articles" }],
+            to: [{ type: "questions" }],
           },
         ],
       }), 

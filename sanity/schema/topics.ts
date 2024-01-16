@@ -33,76 +33,78 @@ export const topics = defineType({
           },
         ],
       }),
+      
       {
+        title: "Content",
+        type: "array",
         name: "content",
-        title: "Excerpt",
-        type: "array",
-        of: [
-          {
-            type: "block",
-          },
-          {
-            type: "image",
-            fields: [
-              {
-                type: "text",
-                name: "alt",
-                title: "Alternative text",
-                description: `Some of your visitors cannot see images, 
-                             be they blind, color-blind, low-sighted; 
-                             alternative text is of great help for those 
-                             people that can rely on it to have a good idea of 
-                             what\'s on your page.`,
-                options: {
-                  isHighlighted: true,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: "Tags",
-        type: "array",
-        name: "tags",
         of: [
           {
             type: "object",
             name: "inline",
             fields: [
-              { type: "string", name: "tag" },
+              { type: "string", name: "Title" },
+              {
+                name: "excerpt",
+                title: "Excerpt",
+                type: "array",
+                of: [
+                  {
+                    type: "block",
+                  },
+                  {
+                    type: "image",
+                    fields: [
+                      {
+                        type: "text",
+                        name: "alt",
+                        title: "Alternative text",
+                        description: `Some of your visitors cannot see images, 
+                                     be they blind, color-blind, low-sighted; 
+                                     alternative text is of great help for those 
+                                     people that can rely on it to have a good idea of 
+                                     what\'s on your page.`,
+                        options: {
+                          isHighlighted: true,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "readmore",
+                title: "Read More",
+                type: "array",
+                of: [
+                  {
+                    type: "block",
+                  },
+                  {
+                    type: "image",
+                    fields: [
+                      {
+                        type: "text",
+                        name: "alt",
+                        title: "Alternative text",
+                        description: `Some of your visitors cannot see images, 
+                                     be they blind, color-blind, low-sighted; 
+                                     alternative text is of great help for those 
+                                     people that can rely on it to have a good idea of 
+                                     what\'s on your page.`,
+                        options: {
+                          isHighlighted: true,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
             ]
           }
         ],
       },
-      {
-        name: "readmore",
-        title: "Read More",
-        type: "array",
-        of: [
-          {
-            type: "block",
-          },
-          {
-            type: "image",
-            fields: [
-              {
-                type: "text",
-                name: "alt",
-                title: "Alternative text",
-                description: `Some of your visitors cannot see images, 
-                             be they blind, color-blind, low-sighted; 
-                             alternative text is of great help for those 
-                             people that can rely on it to have a good idea of 
-                             what\'s on your page.`,
-                options: {
-                  isHighlighted: true,
-                },
-              },
-            ],
-          },
-        ],
-      },
+      
       defineField({
         title: "People Also Ask",
         name: "peopleAlsoAsk",
@@ -110,7 +112,7 @@ export const topics = defineType({
         of: [
           {
             type: "reference",
-            to: [{ type: "articles" }],
+            to: [{ type: "questions" }],
           },
         ],
       }),

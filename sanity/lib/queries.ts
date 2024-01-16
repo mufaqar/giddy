@@ -114,14 +114,19 @@ export const QSingleTopic = `*[ _type == "topics" && slug.current == $slug][0]{
      subtopics[]->{
           name, slug
      },
-     content,
-     readmore,
-     tags[]{
-          tag
+     content[]{
+          Title,
+          excerpt,
+          readmore
      },
      peopleAlsoAsk[]->{
-          title,
+          question,
           slug,
+          answer,
+          article,
+          metatitle,
+          metadescription,
+          metaKeywords
      }
 }
 `;
@@ -140,3 +145,46 @@ export const QSingleSubTopic = `*[ _type == "subTopics" && slug.current == $slug
      }
 }
 `;
+
+export const QSingleQuestion = `*[ _type == "questions" && slug.current == $slug][0]{
+     question,
+     slug,
+     answer,
+     article->{
+          title,
+          slug,
+          excerpt,
+          topic->{
+               name,
+               slug,
+               content[]{
+                    Title,
+                    excerpt,
+                    readmore
+               },
+               peopleAlsoAsk[]->{
+                    question,
+                    slug,
+               }
+          },
+          featured,
+          content,
+          writtenby->{
+               name,
+               approved,
+               email,
+               bio
+          },
+          image{
+               asset->{
+                    url
+               }
+          },
+          videoURL,
+          metatitle,
+          metadescription
+     },
+     metatitle,
+     metadescription,
+     metaKeywords
+}`;

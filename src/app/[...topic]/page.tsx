@@ -44,6 +44,7 @@ export default async function Topics(props: any) {
         featureArticlesByTopics
     } = await getData(props.params.topic);
 
+
     const videoPost = articles.filter((item: IArticle) => item?.videoURL?.length > 10)
 
     return (
@@ -80,6 +81,7 @@ export default async function Topics(props: any) {
                                 )
                             })}
                         </div>
+
                         <div className='md:col-span-2'>
                             <Causes data={featureArticlesByTopics.slice(1, 10)} />
                         </div>

@@ -146,6 +146,8 @@ export const QSingleSubTopic = `*[ _type == "subTopics" && slug.current == $slug
 }
 `;
 
+export const QQuestion = `*[ _type == "questions"]`
+
 export const QSingleQuestion = `*[ _type == "questions" && slug.current == $slug][0]{
      question,
      slug,

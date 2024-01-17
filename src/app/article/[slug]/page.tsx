@@ -54,7 +54,7 @@ export default async function SingArticle(props: any) {
                                 </li>
                             </ul>
                             <div className='md:absolute top-1/2 left-0 static md:mt-0 mt-5'>
-                                <ShareButtons />
+                                <ShareButtons data={article.topic}/>
                             </div>
                             <div className='my-8 rounded-3xl overflow-hidden'>
                                 <Image src={article?.image?.asset?.url} alt={article?.title} width={868} height={524} className='h-full w-full' />

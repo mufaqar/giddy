@@ -4,7 +4,6 @@ import { FaFacebookF, FaShareAlt } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const ShareButtons = ({data}:any) => {
-    console.log("🚀 ~ ShareButtons ~ data:", data)
     return (
         <div>
             <ul className='flex md:flex-col flex-row flex-wrap md:gap-6 gap-3 items-start w-fit mx-auto'>

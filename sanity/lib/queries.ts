@@ -94,9 +94,12 @@ export const QSingleArticles = `*[ _type == "articles" && slug.current == $slug]
      title,
      slug,
      excerpt,
-     topic[]->{
+     topic->{
           name,
-          slug
+          slug,
+          subtopics[]->{
+               name, slug
+          },
      },
      featured,
      content,

@@ -32,7 +32,7 @@ const MegaMenu = ({isSubNav, setIsSubNav}:any) => {
                               {
                                    t?.subtopics?.map((st:any,id:number) => {
                                         return(
-                                             <li key={id} className="font-light hover:text-blue-500 py-2"><Link href={t.slug?.current || '#'}>{st.name}</Link></li>
+                                             <li key={id} className="font-light hover:text-blue-500 py-2"><Link href={'/'+t.slug?.current+'/'+st.slug?.current || '#'}>{st.name}</Link></li>
                                         )
                                    })
                               }

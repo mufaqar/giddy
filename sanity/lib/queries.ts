@@ -142,14 +142,22 @@ export const QSingleTopic = `*[ _type == "topics" && slug.current == $slug][0]{
 export const QSingleSubTopic = `*[ _type == "subTopics" && slug.current == $slug][0]{
      name,
      slug,
-     content,
-     readmore,
      tags[]{
           tag
      },
+     content[]{
+          Title,
+          excerpt,
+          readmore
+     },
      peopleAlsoAsk[]->{
-          title,
+          question,
           slug,
+          answer,
+          article,
+          metatitle,
+          metadescription,
+          metaKeywords
      }
 }
 `;

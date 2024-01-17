@@ -43,6 +43,7 @@ export default async function Topics(props: any) {
         topic,
         featureArticlesByTopics
     } = await getData(props.params.topic);
+        console.log("🚀 ~ Topics ~ topic:", topic)
 
 
     const videoPost = articles.filter((item: IArticle) => item?.videoURL?.length > 10)

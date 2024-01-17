@@ -66,6 +66,14 @@ export const QPolls = `*[ _type == "polls"] | order(_createdAt asc)`;
 
 export const QTopics = `*[ _type == "topics"] | order(_createdAt asc)`;
 
+export const QNavTopics = `*[ _type == "topics"] | order(_createdAt asc){
+     name,
+     slug,
+     subtopics[]->{
+          name, slug
+     },
+}`;
+
 export const QReviews = `*[ _type == "reviews"] | order(_createdAt asc){
      name,
      review,

@@ -7,6 +7,8 @@ import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import MobileNav from './mobileNav';
 import Logo from './Logo';
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import MegaMenu from './megaMenu';
 
 interface INavBar {
      color: string
@@ -18,30 +20,17 @@ const Navbar: FC<INavBar> = ({ color }) => {
 
      return (
           <>
-               <header className='flex justify-between container mx-auto relative px-2 md:px-0 items-center z-50 py-4' style={{ color: `${color}` }}>
+               <header className={`flex justify-between container mx-auto relative px-2 md:px-0 items-center z-50 py-4 ${isSubNav === 0 && '!text-black'}`} style={{ color: `${color}` }}>
                     <div className='flex items-center gap-6'>
-                         <Logo black={color === '#000'}/>
+                         <Logo black={color === '#000' || isSubNav === 0}/>
                          <ul className='items-center capitalize gap-8 hidden md:flex'>
                               {
                                    NavLinks.map((nav:any, idx:number) => (
                                         <li key={idx} className='relative' onMouseLeave={() => setIsSubNav(null)} onMouseEnter={() => setIsSubNav(idx)}>
-                                             <Link href={nav.link} className={`flex item-center gap-2 ${color === '#000' ? 'hover:text-blue-500' : 'hover:text-gray-300'}`}>
+                                             <Link href={nav.link} className={`flex items-center gap-1 ${color === '#000' ? 'hover:text-blue-500' : 'hover:text-gray-300'}`}>
                                                   <span>{nav.name}</span>
-                                                  {nav?.subNav?.length > 0 && <Image src='/svg/arrow-down.svg' alt="icon" width={12} height={12} className={`${color === '#000' && 'invert'}`}/>}
+                                                  {nav?.subNav === true && (isSubNav === idx ? <IoIosArrowUp size={20}/> : <IoIosArrowDown size={20}/>)  }
                                              </Link>
-                                             {
-                                                  isSubNav === idx && nav?.subNav?.length > 0 && <div className='absolute pt-4'>
-                                                       <ul className='bg-white p-4 min-w-[200px] rounded-lg shadow-2xl'>
-                                                            {
-                                                                 nav?.subNav?.map((sNav:any, id:number) => (
-                                                                      <li key={id} className={`py-4 border-b border-gray-400 ${id === 0 && 'pt-1'} ${id + 1 === nav?.subNav?.length && 'pb-1 border-b-0'}`}>
-                                                                           <Link href={sNav.link} className={`text-black ${color === '#000' ? 'hover:text-blue-500' : 'hover:text-blue-500'}`}><span>{sNav.name}</span></Link>
-                                                                      </li>
-                                                                 ))
-                                                            }
-                                                       </ul>
-                                                  </div>
-                                             }
                                         </li>
                                    ))
                               }
@@ -54,7 +43,9 @@ const Navbar: FC<INavBar> = ({ color }) => {
                          {isMobileNav ? <RxCross2 /> : <FiMenu />}
                     </div>
                </header>
-               {/* MobilebNav  */}
+               {/* Mega Menu */}
+               {<MegaMenu isSubNav={isSubNav}/>}
+               {/* Mobileb Nav  */}
                {isMobileNav && <MobileNav NavLinks={NavLinks}/>}
           </>
      )
@@ -67,17 +58,8 @@ export default Navbar
 const NavLinks = [
      {
           name: 'topics',
-          link: 'topics',
-          subNav: [
-               {
-                    name: 'topics 1',
-                    link: 'topics-1'
-               },
-               {
-                    name: 'topics 1',
-                    link: 'topics-1'
-               }
-          ]
+          link: '#',
+          subNav: true
      },
      {
           name: 'videos',

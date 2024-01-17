@@ -20,17 +20,18 @@ const Navbar: FC<INavBar> = ({ color }) => {
 
      return (
           <>
-               <header className={`flex justify-between container mx-auto relative px-2 md:px-0 items-center z-50 py-4 ${isSubNav === 0 && '!text-black'}`} style={{ color: `${color}` }}>
+               <header className={`flex justify-between container mx-auto relative px-2 md:px-0 items-center z-50 ${isSubNav === 0 && '!text-black'}`} style={{ color: `${color}` }}>
                     <div className='flex items-center gap-6'>
-                         <Logo black={color === '#000' || isSubNav === 0}/>
+                         <Logo black={color === '#000' || isSubNav === 0} />
                          <ul className='items-center capitalize gap-8 hidden md:flex'>
                               {
-                                   NavLinks.map((nav:any, idx:number) => (
-                                        <li key={idx} className='relative' onMouseLeave={() => setIsSubNav(null)} onMouseEnter={() => setIsSubNav(idx)}>
-                                             <Link href={nav.link} className={`flex items-center gap-1 ${color === '#000' ? 'hover:text-blue-500' : 'hover:text-gray-300'}`}>
+                                   NavLinks.map((nav: any, idx: number) => (
+                                        <li key={idx} onMouseLeave={() => setIsSubNav(null)} onMouseEnter={() => setIsSubNav(idx)}>
+                                             <Link href={nav.link} className={`flex h-[57px] items-center gap-1 ${color === '#000' ? 'hover:text-blue-500' : 'hover:text-gray-300'}`}>
                                                   <span>{nav.name}</span>
-                                                  {nav?.subNav === true && (isSubNav === idx ? <IoIosArrowUp size={20}/> : <IoIosArrowDown size={20}/>)  }
+                                                  {nav?.subNav === true && (isSubNav === idx ? <IoIosArrowUp size={20} /> : <IoIosArrowDown size={20} />)}
                                              </Link>
+                                             
                                         </li>
                                    ))
                               }
@@ -44,9 +45,9 @@ const Navbar: FC<INavBar> = ({ color }) => {
                     </div>
                </header>
                {/* Mega Menu */}
-               {<MegaMenu isSubNav={isSubNav}/>}
+               {<MegaMenu isSubNav={isSubNav} setIsSubNav={setIsSubNav}/>}
                {/* Mobileb Nav  */}
-               {isMobileNav && <MobileNav NavLinks={NavLinks}/>}
+               {isMobileNav && <MobileNav NavLinks={NavLinks} />}
           </>
      )
 }

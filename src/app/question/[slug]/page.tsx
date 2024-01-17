@@ -75,14 +75,14 @@ export default async function Question(props:any) {
           </h2>
           <div className='grid md:grid-cols-3 grid-cols-1 md:gap-10 gap-7 '>
             <div className=''>
-              {filterFeaturedArticleByTopic?.slice(0, 1).map((item:any, idx:number) => {
+              {filterFeaturedArticleByTopic?.slice(0, 1)?.map((item:any, idx:number) => {
                 return (
                   <FeatureArticle key={idx} data={item} />
                 )
               })}
             </div>
             <div className='md:col-span-2'>
-              <Causes data={filterFeaturedArticleByTopic.slice(1,4)} />
+              <Causes data={filterFeaturedArticleByTopic?.slice(1,4)} />
             </div>
           </div>
         </div>

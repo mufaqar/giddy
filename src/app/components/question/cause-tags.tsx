@@ -15,7 +15,7 @@ const CauseTags = ({ data }: any) => {
         setOpen(true)
     }
     useEffect(()=>{
-        setTag(data.content[0].Title)
+        setTag(data?.content[0]?.Title)
     },[data?.content])
 
     return (

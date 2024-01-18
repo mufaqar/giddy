@@ -1,23 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { client } from '../../../../sanity/lib/client';
-import { QNavTopics } from '../../../../sanity/lib/queries';
+import React from 'react'
 import Link from 'next/link';
 
-const getData = async (): Promise<any> => {
-     const topics = await client.fetch(QNavTopics);
-     return {
-       topics,
-     };
-   };
 
-const MegaMenu = ({isSubNav, setIsSubNav}:any) => {
-     const [topics, setTopics] = useState<any>()
-     useEffect(()=>{
-          (async()=>{
-               const { topics } = await getData()
-               setTopics(topics)
-          })()
-     },[])
+const MegaMenu = ({isSubNav, setIsSubNav, topics}:any) => {     
 
      return (
           <section className={`absolute bg-white w-full  px-1 py-10 transition-all duration-300 ease-linear pt-20 z-[1] ${isSubNav === 0 ? 'top-0' : '-top-[100%]'}`}

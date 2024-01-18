@@ -28,7 +28,7 @@ const MegaMenu = ({isSubNav, setIsSubNav}:any) => {
                     {
                        topics?.slice(0,5)?.map((t:any,idx:number)=>(
                          <ul key={idx} >
-                              <li className="font-semibold mb-3"><Link href={t.slug?.current || '#'}>{t.name}</Link></li>
+                              <li className="font-semibold mb-3"><Link href={'/'+t.slug?.current || '#'}>{t.name}</Link></li>
                               {
                                    t?.subtopics?.map((st:any,id:number) => {
                                         return(

@@ -18,7 +18,7 @@ const Banner = ({data}:any) => {
             </button>
         </div>
         <div className='md:order-2 order-1'>
-          <FeaturedPost data={data.article} custm_class="!font-bold !text-xl" videoSection topic/>
+          <FeaturedPost data={data?.article} custm_class="!font-bold !text-xl" videoSection topic/>
         </div>
       </div>
     </section>

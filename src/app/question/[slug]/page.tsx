@@ -91,35 +91,3 @@ export default async function Question(props:any) {
     </>
   )
 }
-
-const Posts = [
-  {
-    cate: "Dating & Relationships",
-    link: "#",
-    video: "yAoLSRbwxL8",
-    title: "Aydian Dowling on sexual health and intimacy as a transgender man",
-    excerpt: "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui",
-    comments: "2",
-  },
-  {
-    cate: "Future Sex",
-    link: "#",
-    img: "/images/feature/1.png",
-    title: "Our Sex Drive Drives Technological Innovation",
-    comments: "9",
-  },
-  {
-    cate: "HIV & AIDS",
-    link: "#",
-    img: "/images/feature/2.png",
-    title: "Using Dating Apps to Discover Your Sexuality",
-    comments: "9",
-  },
-  {
-    cate: "Vaginal Health",
-    link: "#",
-    img: "/images/feature/4.png",
-    title: "The Vulva Positivity Movement",
-    comments: "9",
-  },
-]

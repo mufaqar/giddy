@@ -36,7 +36,7 @@ const Hero: FC<IHero> = ({
                               <ul className='flex items-center justify-center gap-2 mb-5'>
                                   <li className='bg-white/60 p-2 px-4 rounded-full text-gray-500 hover:scale-105 transition-all duration-200 ease-linear'><Link href={`/${params.topic[0]}`}>{replaceAndCap(params.topic[0])}</Link></li>
                                   <li className="text-3xl">/</li>
-                                  <li className='bg-white/60 p-2 px-4 rounded-full text-blue-600 transition-all duration-200 ease-linear'>{replaceAndCap(params.topic[0])}</li>
+                                  <li className='bg-white/60 p-2 px-4 rounded-full text-blue-600 transition-all duration-200 ease-linear'>{replaceAndCap(title)}</li>
                               </ul>
                          }
                          <h1 className='text-3xl font-semibold text-center md:text-5xl'>{title}</h1>

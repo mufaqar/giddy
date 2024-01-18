@@ -1,14 +1,15 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import MobileNav from './mobileNav';
 import Logo from './Logo';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import MegaMenu from './megaMenu';
+import { client } from '../../../../sanity/lib/client';
+import { QNavTopics } from '../../../../sanity/lib/queries';
 
 interface INavBar {
      color: string
@@ -17,6 +18,15 @@ interface INavBar {
 const Navbar: FC<INavBar> = ({ color }) => {
      const [isSubNav, setIsSubNav] = useState<any>()
      const [isMobileNav, setIsMobileNav] = useState(false)
+     const [topics, setTopics] = useState<any>()
+
+
+     useEffect(()=>{
+          (async()=>{
+               const topics = await client.fetch(QNavTopics);
+               setTopics(topics)
+          })()
+     },[])
 
      return (
           <>
@@ -45,7 +55,7 @@ const Navbar: FC<INavBar> = ({ color }) => {
                     </div>
                </header>
                {/* Mega Menu */}
-               {<MegaMenu isSubNav={isSubNav} setIsSubNav={setIsSubNav}/>}
+               {<MegaMenu isSubNav={isSubNav} setIsSubNav={setIsSubNav} topics={topics}/>}
                {/* Mobileb Nav  */}
                {isMobileNav && <MobileNav NavLinks={NavLinks} />}
           </>

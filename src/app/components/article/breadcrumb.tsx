@@ -2,7 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 
 const Breadcrumb = ({data}:any) => {
-    console.log("🚀 ~ Breadcrumb ~ data:", data)
     return (
         <div>
             <ul className='flex flex-wrap space-x-1 md:space-y-0 space-y-3 items-center w-fit mx-auto'>
@@ -17,12 +16,12 @@ const Breadcrumb = ({data}:any) => {
                         {data?.topic?.name}
                     </Link>
                 </li>
-                <li className='text-[#868686] text-3xl'>/</li>
+                {/* <li className='text-[#868686] text-3xl'>/</li>
                 <li>
                     <span className={`text-base font-medium text-[#307FE2] bg-white py-2 px-4 rounded-full`}>
                         {data?.topic?.subtopics[0].name}
                     </span>
-                </li>
+                </li> */}
             </ul>
         </div>
     )

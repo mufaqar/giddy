@@ -100,6 +100,15 @@ export const QSingleArticles = `*[ _type == "articles" && slug.current == $slug]
           subtopics[]->{
                name, slug
           },
+          peopleAlsoAsk[]->{
+               question,
+               slug,
+               answer,
+               article,
+               metatitle,
+               metadescription,
+               metaKeywords
+          }
      },
      featured,
      content,

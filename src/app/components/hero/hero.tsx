@@ -41,7 +41,7 @@ const Hero: FC<IHero> = ({
                          }
                          <h1 className='text-3xl font-semibold text-center md:text-5xl'>{title}</h1>
                          {info && <p className='text-center my-4'>{info}</p>}
-                         {topic?.length > 0 && <ul className='flex justify-center gap-2 mt-5'>
+                         {topic?.length > 0 && <ul className='flex justify-center gap-2 mt-5 capitalize'>
                               {
                                    topic?.map((item: any, idx: number) => (
                                         <li key={idx} className='bg-white/60 p-2 px-4 rounded-full text-black hover:scale-105 transition-all duration-200 ease-linear'><Link href={`${params.topic[0]}/${item.slug.current}`}>{item.name}</Link></li>

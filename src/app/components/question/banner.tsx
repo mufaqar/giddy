@@ -2,12 +2,10 @@
 import React from 'react'
 import FaqBox from './faq-box';
 import Link from 'next/link';
-import { FaMessage, FaRegBookmark } from 'react-icons/fa6';
 import { FaChevronCircleUp } from 'react-icons/fa';
 import FeaturedPost from '../posts/featured-post';
 
 const Banner = ({data}:any) => {
-  console.log("🚀 ~ Banner ~ data:", data)
 
   return (
     <section className='-mt-16 pt-28 pb-16 bg-gradient-radial from-white via-[#D3E2FF] to-[#D3E2FF]'>

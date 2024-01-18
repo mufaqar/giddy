@@ -2,18 +2,18 @@ import React from 'react'
 import FeaturedPost from '../posts/featured-post'
 import PeopleAsk from '../question/people-ask'
 
-const Article_Sidebar = () => {
+const Article_Sidebar = ({data, question}:any) => {
     return (
         <div>
             <div>
-                {Posts.slice(0, 1).map((item, idx) => {
+                {data.slice(0, 1).map((item:any, idx:number) => {
                     return (
                         <FeaturedPost key={idx} data={item} />
                     )
                 })}
             </div>
             <div className='mt-8'>
-                <PeopleAsk />
+                <PeopleAsk data={question}/>
             </div>
         </div>
     )

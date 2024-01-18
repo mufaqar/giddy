@@ -24,7 +24,7 @@ const getData = async (slug: any): Promise<any> => {
 
 export default async function SingArticle(props: any) {
     const { article, articles } = await getData(props?.params?.slug)
-    const relatedArticles = articles.filter((item:any)=>item.topic?.name === article.topic?.name )
+    const relatedArticles = articles.filter((item:any)=>item.topic?.name === article?.topic?.name )
 
     return (
         <>
@@ -33,14 +33,14 @@ export default async function SingArticle(props: any) {
                 <section className='py-16'>
                     <div className='container mx-auto px-4 md:pl-[200px] relative'>
                         <div>
-                            <Breadcrumb />
+                            <Breadcrumb data={article}/>
                         </div>
                         <div className='my-10'>
                             <h1 className='md:text-5xl text-3xl font-medium text-black'>
-                                {article.title}
+                                {article?.title}
                             </h1>
                             <p className='md:text-2xl text-lg font-medium text-black mt-4 mb-10'>
-                                {article.excerpt}
+                                {article?.excerpt}
                             </p>
                             <p className='md:text-xl text-base font-medium text-black'>
                                 By: {article?.writtenby.name}
@@ -54,7 +54,7 @@ export default async function SingArticle(props: any) {
                                 </li>
                             </ul>
                             <div className='md:absolute top-1/2 left-0 static md:mt-0 mt-5'>
-                                <ShareButtons data={article.topic}/>
+                                <ShareButtons data={article?.topic}/>
                             </div>
                             <div className='my-8 rounded-3xl overflow-hidden'>
                                 <Image src={article?.image?.asset?.url} alt={article?.title} width={868} height={524} className='h-full w-full' />
@@ -68,7 +68,7 @@ export default async function SingArticle(props: any) {
                                     value={article?.content}
                                 />
                             </div>
-                            <div className='flex md:flex-row flex-col gap-5 justify-between items-center mt-8'>
+                            {/* <div className='flex md:flex-row flex-col gap-5 justify-between items-center mt-8'>
                                 <h3 className='md:text-[32px] md:leading-[38px] text-2xl font-medium text-black'>
                                     The common symptoms of breast cancer include <span className='text-[#F8485E]'>bone pain, fatigue, weight loss, coughing or shortness of breath, jaundice, seizures, headaches and vision changes</span>, too, according to Farrington.
                                 </h3>
@@ -83,10 +83,10 @@ export default async function SingArticle(props: any) {
                                         If you notice a lump or a thickening of your breast tissue during a self-exam, contact your doctor. Not every person with breast cancer will feel a lump, however.
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className='md:w-1/3 w-full'>
-                            <Article_Sidebar />
+                            <Article_Sidebar data={relatedArticles} question={article.topic.peopleAlsoAsk}/>
                         </div>
                     </div>
                     <div className='container mx-auto px-4 md:pl-[200px]'>
@@ -95,7 +95,7 @@ export default async function SingArticle(props: any) {
                                 Related Articles
                             </h2>
                             <div className='flex flex-col gap-7'>
-                                {relatedArticles?.map((item:any, idx:number) => {
+                                {relatedArticles?.slice(1,4)?.map((item:any, idx:number) => {
                                     return (
                                         <Latest_Post key={idx} data={item} />
                                     )
@@ -108,32 +108,3 @@ export default async function SingArticle(props: any) {
         </>
     )
 }
-
-const Posts = [
-    {
-        cate: "Dating & Relationships",
-        link: "#",
-        video: "yAoLSRbwxL8",
-        title: "Aydian Dowling on sexual health and intimacy as a transgender man",
-        excerpt: "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui",
-        comments: "2",
-    },
-    {
-        cate: "Future Sex",
-        link: "#",
-        img: "/images/feature/1.png",
-        title: "Our Sex Drive Drives Technological Innovation",
-        excerpt: "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui",
-        authore: "By María Cristina Lalonde",
-        comments: "9",
-    },
-    {
-        cate: "HIV & AIDS",
-        link: "#",
-        img: "/images/feature/2.png",
-        title: "Using Dating Apps to Discover Your Sexuality",
-        excerpt: "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui",
-        authore: "By María Cristina Lalonde",
-        comments: "9",
-    },
-]

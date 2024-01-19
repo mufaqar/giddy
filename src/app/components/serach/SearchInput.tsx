@@ -56,7 +56,7 @@ const SearchInput = () => {
       <div className={`${openSearchFilter ? 'bottom-auto py-4' : 'h-0 bottom-0'} px-4 transition-all duration-150 ease-linear bg-white overflow-hidden absolute w-full left-0  top-[46px] rounded-br-lg shadow-xl text-black rounded-bl-lg z-10`}>
         {/* popular topics */}
         <ul className='py-3'>
-          <li className="text-sm text-gray-500 mb-2">Topular Topics</li>
+          <li className="text-sm text-gray-500 mb-2">Popular Topics</li>
           {
             topics?.length > 0 ?
               topics?.slice(0, 4).map((item: any, idx: number) => (
@@ -70,7 +70,7 @@ const SearchInput = () => {
           }
         </ul>
         <ul className='py-1'>
-          <li className="text-sm text-gray-500 mb-2">Topular Questions</li>
+          <li className="text-sm text-gray-500 mb-2">Popular Questions</li>
           {
             question?.length > 0 ?
               question?.slice(0, 4).map((item: any, idx: number) => (
